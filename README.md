@@ -1,100 +1,91 @@
-# Longyi Jewellery — 第一阶段
-这是天然珠宝品牌网站的基础项目。第一阶段已经建立首页和设计基础，尚未开放销售。
+# Longyi Jewellery — 第二阶段交接
 
-## 本次仓库检查
-GitHub 仓库 yy1008611tt-source/Longyi-Jewellery 原本为空。GitHub 内容 API 明确返回 “This repository is empty.”，所以没有旧文件或旧代码需要覆盖。
-初始化后检查了 package.json、app/layout.tsx、app/page.tsx、app/globals.css 和配置结构。
-项目使用 Next.js 16.3.4、React 19.2.8、TypeScript 5.9.3、Tailwind CSS 4.3.3，基于官方 create-next-app App Router 模板。
-官方初始化说明：https://nextjs.org/docs/app/getting-started/installation
+在原项目续建，未重新初始化 Next.js、未更换技术栈、未部署或进入第三阶段。
 
-## 如何启动（推荐：本次验证使用的 pnpm）
-安装 Node.js 24 LTS（会附带 npm），再打开项目文件夹中的终端，依次输入：
-```sh
-npm install -g pnpm@11.19.0
-pnpm install --frozen-lockfile
-pnpm dev
-```
-浏览器打开 http://localhost:3000 。如果 3000 被占用，以终端显示的 Local 地址为准。
-停止网站：在运行它的终端按 Ctrl+C。
+## 开始前
+GitHub main 为第一阶段 d8cd468；本地已完成 Shop、分类页、筛选排序、商品详情、相关推荐与目录测试。Header、Footer 和路由基础可用。旧首页和商品布局仅部分符合最终要求。旧数据有 Bracelets、Pendants 和泛化材质称谓，未发现危料商品展示。
 
-## 当前 Codex 电脑直接启动
-当前环境有 Node.js 和内置 pnpm，但 npm 不在命令路径中。无需重装，PowerShell 在本项目文件夹内执行：
+## 保留与重构
+保留 App Router、TypeScript、Tailwind、依赖锁文件、货币格式化、面包屑、404、动态路由、筛选排序、相关推荐算法，以及导航状态/键盘关闭逻辑。
+重构设计系统、Header/Footer、四区首页、卡片、Gallery、购买信息和 Accordion，扩展产品字段。
+删除旧首页品牌故事、大面积材质区、订阅区、newsletter 组件、Pendants 数据/图片及旧 bracelets.svg；旧 hero-bangle.png 从本地移除。
+
+## 组件与文件
+| 区域 | 文件 |
+|---|---|
+| 首页组合 | app/page.tsx |
+| Hero | components/home/hero.tsx |
+| Category Mosaic | components/home/category-mosaic.tsx |
+| Best Sellers | components/home/best-sellers.tsx |
+| Why Choose Us | components/home/why-choose-us.tsx |
+| Header / Footer | components/layout/header.tsx、footer.tsx、icons.tsx |
+| 设计系统 | app/globals.css |
+| 商品详情入口 | app/products/[slug]/page.tsx |
+| Gallery | components/product/product-gallery.tsx |
+| 产品信息和 Accordion | components/product/product-information.tsx |
+| 尺寸及购买提示 | components/product/product-options.tsx |
+| 商品卡片/排序 | components/product/product-card.tsx、shop-sort.tsx |
+| 产品/分类数据 | data/catalog.ts、types/product.ts |
+| 品牌配置 | data/brand.ts |
+| Shop/分类 | app/shop/page.tsx、app/collections/page.tsx、app/collections/[slug]/page.tsx |
+| 新品 | app/new-in/page.tsx |
+| About Feizhoucui | app/about-feizhoucui/page.tsx |
+| 服务页占位 | app/[...slug]/page.tsx |
+| 元数据/重定向 | app/layout.tsx、next.config.ts |
+| 目录逻辑及测试 | lib/catalog.ts、tests/catalog.test.mjs |
+| 脚本 | package.json |
+| 新图片 | public/images/hero-lifestyle.png、workshop-placeholder.png、bangles.svg、beaded-bracelets.svg |
+| 交接 | README.md、docs/image-prompts.md |
+
+表格包括本地阶段二新增及本轮调整文件。lib/format.ts、breadcrumb.tsx 等继续复用。AGENTS.md/CLAUDE.md 为 Next 工具生成说明。
+
+## 分类与清理
+五类为 Bangles（硬质手镯）、Beaded Bracelets（珠串手链）、Beaded Necklaces、Earrings、Rings；每类两件开发示例，共十件。
+当前页面、导航、数据类型没有旧独立 Bracelets 分类、危料或多材质商品展示。
+兼容例外：next.config.ts 保留 /collections/bracelets、/our-jade 与旧商品 slug 作为重定向源，不作为现行分类或材质承诺。Pendants 旧分类返回 404。
+
+## 产品数据
+沿用 name 作为 productName、category 对应 collection，保留原浏览逻辑。
+支持 stone（鉴定身份）、tradeName、colour、origin、treatment、finish、craftsmanship、workshop、naturalVariation、certificate、size（手镯内径 mm）、beadSize（mm）、braceletLength/necklaceLength（cm）、clasp、price、shortDescription、images、reviews。
+未知的材质、产地、处理、证书、评价和尺寸不填，不默认 Feizhoucui 等于某矿物。Stone Origin 与 Workshop 分别显示；无资料不显示具体地点。
+Naturally Unique 可逐件覆盖，无证书不显示标签，无真实评价不生成五星。Best Sellers 注明为预览选品而非真实销量排名。
+品牌优势在 data/brand.ts 配置，Own Workshop 等声明带草稿提示，确认后再转为正式文案。
+
+## 完成范围与限制
+首页只有四区；桌面拼图与四商品横排，手机分类两列且末张通栏，商品两列。
+PDP 桌面约 60/40，首图大图、后续双列、末张 Lifestyle 通栏；手机上下排列，按钮与五个 Accordion 全宽。Bangle 尺寸指南只对应硬质手镯。
+About Feizhoucui 完成独立入口、大图占位和八个简短主题结构；真实内容待资料确认。
+ADD TO BAG 可点击并显示未开放购买提示，**不是真实购物车**，未连接库存/结账/支付。沿用此前阶段范围，搜索、账户和购物袋图标为禁用占位；服务/门店/法律页仅占位，没有编造政策或地址。
+Hover 已支持有真实第二图时淡入；当前缺真实第二图，不用重复图冒充另一角度。
+字体采用系统 Palatino/Georgia + Arial/Helvetica，未下载 Cormorant/Inter。维持 serif + sans 组合，避免外部字体依赖。
+保持 noindex。仍是开发预览，真实资料与购买功能未完成，不能正式销售。
+
+## 待提供的真实图片
+- Hero：横向 Lifestyle 模特佩戴 Feizhoucui、左侧留白，另备手机裁切。当前 AI 概念图明确标记。
+- 分类：硬质手镯、珠串手链、珠串项链、耳饰佩戴、戒指近景。当前是 SVG 示意。
+- Why Choose Us：真实选料、质检、工坊或门店。AI 工坊概念图不代表 Longyi 实际场地。
+- 每件商品：正面、佩戴该件、微距纹理、侧背面、尺寸参照、生活方式六类。当前首图为分类示意，其余五图位标明用途。
+- About Feizhoucui：真实石材纹理、透光与细节图，目前为占位。
+照片保持真实颜色、纹理和通透度。
+
+## 待提供的真实资料
+每件名称、SKU、售价、证书鉴定材质、交易名称、颜色、处理情况、可验证原料产地、加工地点、工艺、表面处理、内径/珠径/长度/扣头、天然差异、证书信息、真实评价（如有）。
+品牌还需确认自有制作环节、门店地址、联系方式、Instagram、配送范围/费用/时效、退换条件、测量方式、护理指南。未提供前不自动补全。
+
+## 验证
+pnpm build、pnpm lint、pnpm test 通过，6 项目录测试。
+浏览器覆盖 375、768、1024、1440px，检查首页、商品详情、五分类、桌面下拉、手机菜单、新品 CTA、筛选排序、Size Guide、Accordion 和购买提示。未见明显横向溢出或图片加载故障。
+HTTP：28 页返回 200 且 noindex；13 条重定向正确；3 个无效或已删除路由返回 404。
+Next 开发日志未发现 Browser Error/Warning 或服务器异常，React DevTools 安装建议为开发提示。
+未进行真实设备全浏览器矩阵测试；真实购买不在本阶段实现范围。
+
+## 本地运行
+已有依赖时直接 pnpm dev --hostname 127.0.0.1；新环境先 pnpm install --frozen-lockfile。
+当前电脑 PowerShell 可使用：
 ```powershell
-& "$env:USERPROFILE\.cache\codex-runtimes\codex-primary-runtime\dependencies\bin\fallback\pnpm.cmd" dev
+& "$env:USERPROFILE\.cache\codex-runtimes\codex-primary-runtime\dependencies\bin\fallback\pnpm.cmd" dev --hostname 127.0.0.1
 ```
-本次预览使用 http://127.0.0.1:3000 。
+预览：http://127.0.0.1:3000/
+验证命令：pnpm lint、pnpm test、pnpm build。
 
-## 检查与正式运行
-```sh
-pnpm lint
-pnpm build
-pnpm start
-```
-lint 检查代码规范；build 编译可正式部署的版本，并检查 TypeScript 类型；start 启动构建后的版本。
-pnpm-lock.yaml 锁定本次依赖版本；请保留它，不要混用多种锁文件。
-未来可将仓库导入 Vercel，框架选 Next.js；第一阶段未部署到互联网。
-
-## 文件地图
-| 文件 | 作用 |
-| --- | --- |
-| app/page.tsx | 首页：Hero、分类、精选商品、品牌故事、Our Jade |
-| app/layout.tsx | 所有页面共用的 Header、Footer、英文语言和基础 SEO |
-| app/globals.css | 全局颜色、字体、间距、按钮、卡片和响应式样式 |
-| app/[...slug]/page.tsx | 已规划链接的统一占位页面，未知地址仍返回 404 |
-| app/not-found.tsx | 友好的 404 页面 |
-| app/icon.svg | 临时品牌图标 |
-| components/layout/header.tsx | 桌面导航和手机菜单，支持 Escape 关闭及焦点返回 |
-| components/layout/footer.tsx | 页脚分组链接与社交占位 |
-| components/layout/newsletter.tsx | 共用订阅区；只验证输入并提示未保存，不发请求 |
-| components/layout/icons.tsx | 搜索、购物袋、菜单等轻量图标 |
-| components/product/product-card.tsx | 可复用的商品卡片 |
-| data/catalog.ts | 五个分类、十件模拟商品 |
-| types/product.ts | 商品字段的 TypeScript 类型（防止漏填或填错数据） |
-| lib/format.ts | 统一美元价格显示 |
-| public/images/*.svg | 五张本地原创几何示意占位图，不是真实产品照片 |
-| package.json | 项目依赖及启动、构建、检查命令 |
-| pnpm-lock.yaml | 本次安装的确切依赖版本 |
-| pnpm-workspace.yaml | 官方模板的依赖构建许可配置 |
-| next.config.ts | Next.js 配置 |
-| tsconfig.json、next-env.d.ts | TypeScript 配置与 Next.js 类型入口 |
-| postcss.config.mjs | Tailwind CSS 处理配置 |
-| eslint.config.mjs | 代码规范检查配置 |
-| .gitignore | 排除依赖、构建产物和本地环境文件 |
-| README.md | 本中文说明 |
-
-相对初始化模板，替换了首页、全局布局、全局样式与 README；增加了组件、类型、数据、格式工具、占位路由和图片。移除模板自带的 Next/Vercel 图片与图标。原 GitHub 仓库没有文件，因此提交中的源代码都是新增。
-
-## 设计规范
-集中修改 app/globals.css 顶部：
-- Background #faf9f5；Text #252d29；Muted #626961；Border #d9dcd2。
-- Jade #254f40；Warm #eee9df；Accent #8b7046。
-- 标题 Palatino / Georgia 系统衬线字体；正文 Arial / Helvetica。无需下载字体。
-- 最大内容宽 1320px；区块间距 56–104px；正文 16px；卡片圆角 3px；按钮最小高度 50px。
-- 手机 <600px，平板 600–959px，电脑 >=960px。
-- 主图片通过 next/image 渲染；当前 SVG 不需位图压缩，替换照片后仍沿用 Image 的响应式能力。
-
-## 修改商品和图片
-在 data/catalog.ts 修改 samples 的名称、分类、美元价格和 SKU。完整对象会自动带上 id、slug、image、material、description。
-要接入真实商品，可将 products 直接改成 Product[] 对象数组，每件填写实际资料。
-图片放入 public/images，然后使用 /images/文件名.jpg 这样的路径。
-当前首页展示 products 的前四件；改 app/page.tsx 的 slice(0,4) 可显示更多。
-
-## 当前占位内容与上线前替换
-品牌名、图标、所有图片、价格、商品资料、故事文案、社交账号、联系信息和政策都是占位。
-Search 和 Cart 只有图标与 Hover；订阅不保存邮箱；所有非首页页面为 Coming soon。
-材质使用“非洲翠”的暂定商品标签，没有将它断言为已鉴定的翡翠或其他具体矿物；正式销售文案应依据你提供的鉴定和实际商品资料。
-metadata 已有英文标题与描述。目前因为全站仍有测试商品，设置 noindex / nofollow；正式资料和页面准备好后，再在 app/layout.tsx 与占位路由中调整 robots。
-没有支付、登录、数据库、购物车、订单、后台或追踪脚本。
-
-## 验证记录
-- pnpm build 通过，TypeScript 检查通过。
-- pnpm lint 通过。
-- 开发服务器成功启动，首页 HTTP 200。
-- 浏览器已查看桌面 1440px、平板 768px、手机 390px 布局，无横向溢出；另检查 320px 占位页。
-- 手机菜单可展开，Escape 可关闭；订阅正确提示“未保存邮箱”。
-- 珠串项链分类可进入对应占位页面。
-- 已观察浏览器控制台未出现 error / warn。
-- 更完整的浏览器兼容测试和真实设备测试留待正式上线前。
-
-## 下一阶段建议
-先完善 Shop、五个分类页和商品详情页，继续使用模拟数据；收到真实照片、正式英文品牌名与商品资料后逐步替换。本次到第一阶段为止。
+第二阶段到此停止，等待确认。

@@ -1,16 +1,12 @@
 import type {Metadata} from "next";
 import Link from "next/link";
 import {notFound} from "next/navigation";
-import {collections,products} from "@/data/catalog";
-const pages:Record<string,string>={
-shop:"Shop All",collections:"Collections","our-jade":"Our Jade",about:"About Us",contact:"Contact",craftsmanship:"Craftsmanship",faq:"Frequently Asked Questions","shipping-returns":"Shipping & Returns","privacy-policy":"Privacy Policy","terms-conditions":"Terms & Conditions","new-arrivals":"New Arrivals",
-...Object.fromEntries(collections.map(c=>[`collections/${c.slug}`,c.name])),
-...Object.fromEntries(products.map(p=>[`products/${p.slug}`,p.name]))};
+const pages:Record<string,string>={about:"About Longyi",contact:"Contact Us",craftsmanship:"Craftsmanship",faq:"FAQ","shipping-returns":"Shipping & Returns","privacy-policy":"Privacy Policy","terms-conditions":"Terms & Conditions","care-guide":"Care Guide","size-guide":"Size Guide","visit-us":"Visit Us"};
 export const dynamicParams=false;
-export function generateStaticParams(){return Object.keys(pages).map(path=>({slug:path.split("/")}));}
+export function generateStaticParams(){return Object.keys(pages).map(slug=>({slug:[slug]}));}
 type Props={params:Promise<{slug:string[]}>};
-export async function generateMetadata({params}:Props):Promise<Metadata>{const {slug}=await params;return {title:pages[slug.join("/")]||"Page not found",robots:{index:false,follow:false}};}
+export async function generateMetadata({params}:Props):Promise<Metadata>{return {title:pages[(await params).slug.join("/")]??"Not Found"};}
 export default async function Placeholder({params}:Props){
-const {slug}=await params;const title=pages[slug.join("/")];if(!title)notFound();
-return <main id="main-content" className="container placeholder"><p className="eyebrow">COMING SOON</p><h1>{title}</h1><p>This part of our website is taking shape. Explore our homepage for a first look at the collection.</p><p className="small">Preview only. Products are not available for purchase yet.</p><Link className="button" href="/">Back to homepage <span aria-hidden="true">↗</span></Link></main>;
+ const slug=(await params).slug.join("/");const title=pages[slug];if(!title)notFound();
+ return <main id="main-content" className="container placeholder"><p className="eyebrow">TAKING SHAPE</p><h1>{title}</h1><p>{slug==="visit-us"?"We look forward to welcoming you in person. Verified store details and opening hours will be added before launch.":"The details for this page will be added before launch."}</p><Link className="text-link" href="/shop">Explore the collection ↗</Link></main>;
 }
