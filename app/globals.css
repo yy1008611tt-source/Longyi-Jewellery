@@ -33,18 +33,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button[ar
 .shop-dropdown{position:relative}.shop-dropdown summary{list-style:none;cursor:pointer;padding:18px 0}.shop-dropdown summary::-webkit-details-marker{display:none}
 .shop-dropdown-links{position:absolute;top:100%;left:-24px;width:230px;background:var(--color-background);border:1px solid var(--color-border);padding:16px 24px;display:flex;flex-direction:column;gap:4px;font-size:14px;letter-spacing:0}
 .shop-dropdown-links a{padding-block:9px}
-.hero{height:85svh;min-height:620px;max-height:980px;position:relative;background:var(--color-warm);isolation:isolate}
-.hero-media{position:absolute;inset:0;z-index:-1}.hero-media img{object-fit:cover;object-position:center}
-.hero-copy{position:absolute;top:50%;left:max(var(--gutter),calc((100vw - 1320px)/2));transform:translateY(-50%);width:44%;max-width:660px;padding-right:24px}
-.hero h1{font-size:clamp(46px,5.1vw,78px);line-height:1.03}
-.hero-copy>p:not(.eyebrow){max-width:350px;margin-block:28px 30px;font-size:16px}
 .concept-label{position:absolute;left:18px;bottom:16px;padding:3px 8px;background:#f5f2ecdc;color:#59564f;font-size:10px;line-height:1.4}
-.category-mosaic{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:330px 290px;gap:16px}
-.mosaic-card{position:relative;overflow:hidden;background:var(--color-warm);min-width:0}
-.mosaic-card img{object-fit:cover;transition:opacity .2s}.mosaic-card:hover img{opacity:.88}
-.mosaic-bangles{grid-column:1/6;grid-row:1/3}.mosaic-beaded-bracelets{grid-column:6/10;grid-row:1}.mosaic-beaded-necklaces{grid-column:10/13;grid-row:1}.mosaic-earrings{grid-column:6/9;grid-row:2}.mosaic-rings{grid-column:9/13;grid-row:2}
-.mosaic-caption{position:absolute;bottom:22px;left:24px;right:20px;display:flex;align-items:end;justify-content:space-between;gap:12px}
-.mosaic-caption h3{font-size:13px;letter-spacing:.09em;text-transform:uppercase}.mosaic-caption span{font-size:12px;white-space:nowrap}
 .best-sellers{padding-top:0}
 .catalog-disclaimer{font-size:12px;color:var(--color-muted);margin-bottom:24px}
 .product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px 22px}
@@ -109,31 +98,18 @@ button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button[ar
 .desktop-navigation{display:none}.mobile-toggle{display:inline-flex}.header-row{height:84px}
 .mobile-navigation:not([hidden]){display:flex;flex-direction:column;padding:10px var(--gutter) 26px;border-top:1px solid var(--color-border);max-height:75svh;overflow-y:auto}
 .mobile-navigation>a{font-size:13px;padding-block:13px;letter-spacing:.05em}.mobile-categories{display:flex;flex-direction:column;padding-left:18px;margin-bottom:10px}.mobile-categories a{font-size:14px;padding-block:10px}
-.hero-copy{width:48%}.hero h1{font-size:clamp(42px,5.5vw,66px)}
-.category-mosaic{grid-template-rows:260px 260px}.mosaic-caption{left:16px;right:16px;flex-direction:column;align-items:start}
 }
 @media(max-width:959px){
 .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .why-section{grid-template-columns:1fr;gap:38px}.why-image{min-height:0;height:auto;aspect-ratio:4/3;max-height:680px}
 .product-detail{grid-template-columns:1fr;gap:40px}.product-information{position:static;max-width:720px}
 .footer-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
-.hero{height:auto;min-height:0;max-height:none;display:flex;flex-direction:column}
-.hero-media{position:relative;inset:auto;z-index:auto;height:450px}.hero-media img{object-position:78% center}
-.hero-copy{position:static;transform:none;width:100%;max-width:none;padding:40px var(--gutter) 48px}
-.hero-copy>p:not(.eyebrow){max-width:420px;margin-block:20px 24px}
-.hero>.concept-label{bottom:auto;top:424px;left:12px}
 .education-topics{gap:48px}.product-gallery{gap:12px}
 }
 @media(max-width:599px){
 :root{--gutter:20px;--section-space:76px}
 .header-row{height:76px;padding-inline:12px;gap:6px}.wordmark{font-size:25px}.wordmark span{font-size:9px}.icon-button{min-width:34px}
-.hero-media{height:380px}.hero-media img{object-position:78% center}.hero>.concept-label{top:354px}
-.hero-copy{padding-block:32px 42px}.hero h1{font-size:46px}.hero-copy .eyebrow{margin-bottom:18px;font-size:11px}
-.hero-copy>p:not(.eyebrow){font-size:15px}.hero .button{min-height:50px}
 .section-heading{align-items:start;gap:16px}.section-heading>.small{display:none}
-.category-mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:12px}
-.mosaic-card{grid-column:auto;grid-row:auto;aspect-ratio:3/4}
-.mosaic-rings{grid-column:1/-1;aspect-ratio:5/3}.mosaic-caption{bottom:14px;left:12px;gap:6px}.mosaic-caption h3{font-size:11px;letter-spacing:.04em}.mosaic-caption span{font-size:11px}
 .product-grid{gap:30px 14px}.product-image{margin-bottom:13px}.product-card h3{font-size:14px}.card-material{font-size:12px}.image-note{left:8px;font-size:10px}
 .advantages li{padding-block:22px;gap:12px}.why-image{aspect-ratio:4/5}
 .footer-intro{flex-direction:column;align-items:start;gap:24px}.footer-intro p{font-size:25px}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 16px}
@@ -147,6 +123,69 @@ button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button[ar
 .product-facts>div{grid-template-columns:1fr 1.3fr;gap:12px}
 .education-topics{grid-template-columns:1fr;padding-block:60px}.education-image{height:340px}.placeholder{padding-block:70px}
 }
-@media(max-width:359px){.product-grid,.collections-directory{grid-template-columns:1fr}.hero h1{font-size:40px}.header-row{padding-inline:8px}.wordmark{font-size:23px}}
+@media(max-width:359px){.product-grid,.collections-directory{grid-template-columns:1fr}.header-row{padding-inline:8px}.wordmark{font-size:23px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
-.mosaic-card img.mosaic-illustration{object-fit:contain;padding-bottom:58px}
+
+/* Homepage campaign photography. Other pages retain their existing styles. */
+.hero{height:85svh;min-height:680px;max-height:900px;position:relative;isolation:isolate;background:#20372b;color:#F4F0E8}
+.hero-media{position:absolute;inset:0;z-index:-1}
+.hero-media img{object-fit:cover;object-position:100% 50%}
+.hero-copy{position:absolute;top:54%;left:clamp(48px,6vw,110px);transform:translateY(-50%);width:40%;max-width:580px}
+.hero h1{font-size:clamp(58px,5vw,72px);font-weight:400;line-height:1.06;letter-spacing:-.025em;text-wrap:balance}
+.hero-copy>p{font-size:clamp(18px,1.4vw,21px);line-height:1.6;max-width:380px;margin-block:26px 30px}
+.hero-cta{display:inline-flex;align-items:center;gap:18px;min-height:44px;padding-block:10px;border-bottom:1px solid #f4f0e899;font-size:14px;letter-spacing:.09em}
+.hero-cta span{transition:transform .25s ease}.hero-cta:hover span{transform:translateX(4px)}
+.hero-cta:focus-visible{outline-color:#F4F0E8}
+.home-categories{padding-block:clamp(90px,9vw,130px);container-type:inline-size}
+.category-mosaic{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:32cqw 26cqw;gap:16px}
+.mosaic-card{position:relative;overflow:hidden;min-width:0}
+.mosaic-card img{object-fit:cover;transition:transform .6s ease-out}
+.mosaic-bangles{grid-column:1/7;grid-row:1/3}.mosaic-bangles img{object-position:56% 61%}
+.mosaic-beaded-bracelets{grid-column:7/10;grid-row:1}.mosaic-beaded-bracelets img{object-position:53% 54%}
+.mosaic-beaded-necklaces{grid-column:10/13;grid-row:1}.mosaic-beaded-necklaces img{object-position:50% 56%}
+.mosaic-earrings{grid-column:7/10;grid-row:2}.mosaic-earrings img{object-position:53% 47%}
+.mosaic-rings{grid-column:10/13;grid-row:2}.mosaic-rings img{object-position:55% 58%}
+.mosaic-card::after{content:"";position:absolute;inset:60% 0 0;pointer-events:none;background:linear-gradient(transparent,#17271d75)}
+.mosaic-tone-dark{color:#191919}.mosaic-tone-dark::after{background:linear-gradient(transparent,#f4f0e8c9)}
+.mosaic-tone-light{color:#F4F0E8}
+.mosaic-caption{position:absolute;bottom:30px;left:30px;right:22px;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.mosaic-caption h3{font:400 clamp(22px,2vw,30px)/1.15 var(--font-heading);letter-spacing:.01em;text-transform:uppercase;overflow-wrap:normal}
+.mosaic-bangles h3{font-size:clamp(30px,3vw,44px)}
+.mosaic-cta{font:12px/1.5 var(--font-body);letter-spacing:.07em;display:inline-flex;gap:12px;align-items:center}
+.mosaic-cta>span{transition:transform .25s ease}
+.mosaic-card:focus-visible{outline:2px solid var(--color-text);outline-offset:5px}
+@media(hover:hover) and (pointer:fine){.mosaic-card:hover img{transform:scale(1.025)}.mosaic-card:hover .mosaic-cta>span{transform:translateX(4px)}}
+@media(min-width:768px) and (max-width:1199px){
+  .hero{height:56.25vw;min-height:440px;max-height:670px}
+  .hero-copy{left:40px;width:40%;top:56%}
+  .hero h1{font-size:clamp(46px,5.1vw,60px)}
+  .hero-copy>p{font-size:17px;max-width:26vw}
+  .hero-media img{object-position:94% 50%}
+  .category-mosaic{grid-template-rows:34cqw 29cqw;gap:12px}
+  .mosaic-caption{left:18px;right:12px;bottom:20px;gap:10px}
+  .mosaic-caption h3{font-size:20px}.mosaic-bangles h3{font-size:32px}
+  .mosaic-cta{font-size:11px;gap:8px}
+}
+@media(max-width:767px){
+  .hero{height:80svh;min-height:620px;max-height:760px;display:flex;flex-direction:column}
+  .hero-media{position:relative;inset:auto;flex:1;min-height:0;z-index:0}
+  .hero-media img{object-position:100% 50%}
+  .hero-copy{position:relative;left:auto;right:auto;top:auto;bottom:auto;transform:none;width:auto;max-width:none;flex:none;padding:24px 22px 26px}
+  .hero h1{font-size:clamp(38px,6vw,46px);line-height:1.05;text-wrap:initial}
+  .hero-copy>p{font-size:16px;line-height:1.5;margin-block:14px 10px;max-width:350px}
+  .hero-cta{font-size:13px;min-height:44px;padding-block:8px}
+  .home-categories{padding-block:68px}
+  .category-mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;gap:10px}
+  .mosaic-card{grid-column:auto;grid-row:auto;aspect-ratio:3/4}
+  .mosaic-bangles{grid-column:1/-1;aspect-ratio:4/5}
+  .mosaic-caption{left:14px;right:10px;bottom:16px;gap:9px}
+  .mosaic-caption h3{font-size:clamp(18px,3vw,22px);line-height:1.12}
+  .mosaic-bangles h3{font-size:28px}
+  .mosaic-cta{font-size:11px;gap:8px}
+  .mosaic-bangles img{object-position:56% 60%}
+  .mosaic-beaded-bracelets img{object-position:54% 54%}
+  .mosaic-beaded-necklaces img{object-position:50% 50%}
+  .mosaic-earrings img{object-position:54% 48%}
+  .mosaic-rings img{object-position:55% 57%}
+}
+@media(prefers-reduced-motion:reduce){.hero-cta span,.mosaic-card img,.mosaic-cta>span{transition:none}.mosaic-card:hover img{transform:none}}

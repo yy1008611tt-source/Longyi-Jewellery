@@ -1,12 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { collections } from "@/data/catalog";
+import { homeCategoryImages } from "@/data/brand";
+
 export function CategoryMosaic() {
-  return <section className="section wide-container" aria-labelledby="category-heading">
-    <div className="section-heading"><h2 id="category-heading" className="section-label">SHOP BY CATEGORY</h2><span className="small">Five forms. Your own expression.</span></div>
-    <div className="category-mosaic">{collections.map((c) => <Link className={`mosaic-card mosaic-${c.slug}`} href={`/collections/${c.slug}`} key={c.slug}>
-      <Image className={c.image.endsWith(".svg") ? "mosaic-illustration" : undefined} src={c.image} alt={`Placeholder: ${c.imageBrief}`} fill sizes="(max-width: 599px) 100vw, 45vw" />
-      <div className="mosaic-caption"><h3>{c.name}</h3><span>Shop Now ↗</span></div>
-    </Link>)}</div>
-  </section>;
+  return (
+    <section className="section wide-container home-categories" aria-labelledby="category-heading">
+      <div className="section-heading"><h2 id="category-heading" className="section-label">SHOP BY CATEGORY</h2></div>
+      <div className="category-mosaic">
+        {collections.map((collection) => {
+          const photo = homeCategoryImages[collection.slug];
+          return (
+            <Link className={`mosaic-card mosaic-${collection.slug} mosaic-tone-${photo.tone}`} href={`/collections/${collection.slug}`} key={collection.slug}>
+              <Image src={photo.src} alt={photo.alt} fill sizes={collection.slug === "bangles" ? "(max-width: 767px) 100vw, (max-width: 1199px) 50vw, (max-width: 1440px) 46vw, 662px" : "(max-width: 767px) 50vw, (max-width: 1199px) 25vw, (max-width: 1440px) 23vw, 323px"} />
+              <div className="mosaic-caption">
+                <h3>{collection.name}</h3>
+                <span className="mosaic-cta">SHOP NOW <span aria-hidden="true">→</span></span>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </section>
+  );
 }
