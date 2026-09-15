@@ -9,7 +9,9 @@ export interface Collection {
 export interface ProductImage {
   src?: string;
   alt: string;
-  role: "Front" | "Model" | "Detail" | "Side" | "Scale" | "Lifestyle";
+  role: "Front" | "Model" | "Detail" | "Side" | "Scale" | "Lifestyle"
+    | "main" | "product" | "detail" | "on-wrist" | "size-guide"
+    | "natural-variation" | "construction" | "lifestyle" | "packaging";
   placeholder?: boolean;
 }
 export interface Product {
@@ -17,7 +19,21 @@ export interface Product {
   slug: string;
   name: string;
   category: Category;
-  price: number;
+  price: number | null;
+  pdpLayout?: "editorial";
+  subtitle?: string;
+  material?: string; // Supplied commercial material description, distinct from stone identity.
+  productType?: "natural-variation" | "exact-piece";
+  construction?: string;
+  metalComponents?: string;
+  wristFitCm?: string | null;
+  wristFitIn?: string | null;
+  beadSizeApproximate?: boolean;
+  gender?: string;
+  useCase?: string;
+  naturalVariationSubtitle?: string;
+  sizeScaleDescription?: string;
+  sizeGuideCaption?: string;
   sku: string;
   tradeName: string;
   stone?: string;

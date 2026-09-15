@@ -23,7 +23,7 @@ const samples: { id: string; name: string; category: Category; price: number; sk
   { id: "10", name: "Olive Feizhoucui Ring", category: "rings", price: 95, sku: "RG002" },
 ];
 
-export const products: Product[] = samples.map((sample) => ({
+const demoProducts: Product[] = samples.map((sample) => ({
   ...sample,
   slug: sample.name.toLowerCase().replaceAll(" ", "-"),
   sku: `DEMO-${sample.sku}`,
@@ -41,4 +41,42 @@ export const products: Product[] = samples.map((sample) => ({
     { alt: "This piece styled for everyday wear", role: "Lifestyle", placeholder: true },
   ],
 }));
+// SKU 001 uses only supplied facts. Unconfirmed price and fit remain null.
+export const sku001: Product = {
+  id: "001",
+  sku: "001",
+  name: "Verdant Beaded Bracelet",
+  slug: "verdant-beaded-bracelet",
+  category: "beaded-bracelets",
+  pdpLayout: "editorial",
+  subtitle: "Natural Feizhoucui · 8 mm",
+  material: "Natural Feizhoucui",
+  tradeName: "Feizhoucui",
+  beadSize: 8,
+  beadSizeApproximate: true,
+  construction: "Flexible elastic cord",
+  metalComponents: "None",
+  treatment: "No artificial enhancement",
+  productType: "natural-variation",
+  gender: "Unisex",
+  useCase: "Everyday wear",
+  price: null,
+  wristFitCm: null,
+  wristFitIn: null,
+  featured: false,
+  newArrival: false,
+  shortDescription: "Designed for effortless everyday wear, this beaded bracelet highlights the naturally varied green tones and individual patterns found in each stone.",
+  description: "An everyday bracelet made with approximately 8 mm Natural Feizhoucui beads on a flexible elastic cord, with no metal components.",
+  naturalVariationSubtitle: "No two bracelets are exactly alike.",
+  naturalVariation: "Each bead is formed by nature, so subtle variations in color, pattern and translucency are expected and make every bracelet individually distinctive.",
+  care: "Avoid prolonged contact with harsh chemicals.\nStore separately to help protect the polished surface.\nClean gently with a soft, dry cloth.",
+  sizeScaleDescription: "A balanced everyday size with a noticeable presence on the wrist.",
+  sizeGuideCaption: "Bead-size comparison only. This bracelet is offered with approximately 8 mm beads; other sizes and bracelet designs shown are for scale reference.",
+  images: [
+    { src: "/images/products/001/01-main.png", role: "main", alt: "Verdant Beaded Bracelet on a warm ivory background" },
+    { src: "/images/products/001/02-stone-detail.png", role: "detail", alt: "Close-up of three green Feizhoucui beads showing natural variation" },
+    { src: "/images/products/001/03-bead-size-guide.png", role: "size-guide", alt: "Wrist comparison showing bead sizes from 4 mm to 12 mm, including 8 mm" },
+  ],
+};
+export const products: Product[] = [...demoProducts, sku001];
 export const categoryName = (slug: Category) => collections.find((c) => c.slug === slug)!.name;

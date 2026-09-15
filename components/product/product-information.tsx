@@ -3,8 +3,21 @@ import type { Product } from "@/types/product";
 import { formatPrice } from "@/lib/format";
 import { brand } from "@/data/brand";
 import { ProductOptions } from "./product-options";
+import { coreAttributes } from "@/lib/product";
+import { categoryName } from "@/data/catalog";
+import { ProductFacts } from "./product-editorial-sections";
 
 export function ProductInformation({product:p}: {product:Product}) {
+  if (p.pdpLayout === "editorial") return <div className="product-information pdp-editorial-information">
+    <p className="eyebrow">{categoryName(p.category)}</p>
+    <h1>{p.name}</h1>
+    {p.subtitle && <p className="pdp-subtitle">{p.subtitle}</p>}
+    {p.reviews && p.reviews.count > 0 && <p className="review-line">★ {p.reviews.rating.toFixed(1)} ({p.reviews.count})</p>}
+    <p className="detail-price">{formatPrice(p.price)}{p.price !== null && <span>USD</span>}</p>
+    <p className="detail-description">{p.shortDescription}</p>
+    <div className="pdp-core-attributes"><ProductFacts rows={coreAttributes(p)} /></div>
+    <ProductOptions product={p} showMeasurements={false} />
+  </div>;
   const facts = [
     ["Stone / gemological identity",p.stone ?? "Verified material identity to be added"],
     ["Trade name",p.tradeName],["Colour",p.colour],["Stone origin",p.origin],
@@ -14,7 +27,7 @@ export function ProductInformation({product:p}: {product:Product}) {
   return <div className="product-information">
     <h1>{p.name}</h1>
     <div className="review-line">{p.reviews && p.reviews.count>0 ? <p aria-label={`Rated ${p.reviews.rating} out of 5 from ${p.reviews.count} reviews`}>★ {p.reviews.rating.toFixed(1)} ({p.reviews.count})</p>:<p className="small">No reviews yet.</p>}</div>
-    <p className="detail-price">{formatPrice(p.price)} <span>USD</span><small>Demo price</small></p>
+    <p className="detail-price">{formatPrice(p.price)} {p.price !== null && <><span>USD</span><small>Demo price</small></>}</p>
     <p className="detail-description">{p.shortDescription}</p>
     <ProductOptions product={p} />
     <div className="product-accordions">

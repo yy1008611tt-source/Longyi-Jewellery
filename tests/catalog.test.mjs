@@ -21,8 +21,10 @@ test("all four sorts are correct and never mutate the source catalog", () => {
   const desc = filterAndSortProducts(products, undefined, "price-desc");
   const names = filterAndSortProducts(products, undefined, "name-asc");
   const featured = filterAndSortProducts(products);
-  assert.deepEqual(asc.map(p => p.price), products.map(p => p.price).sort((a,b) => a-b));
-  assert.deepEqual(desc.map(p => p.price), products.map(p => p.price).sort((a,b) => b-a));
+  const prices = products.filter(p => p.price !== null).map(p => p.price);
+  const unpriced = products.filter(p => p.price === null).map(() => null);
+  assert.deepEqual(asc.map(p => p.price), [...prices.toSorted((a,b) => a-b), ...unpriced]);
+  assert.deepEqual(desc.map(p => p.price), [...prices.toSorted((a,b) => b-a), ...unpriced]);
   assert.deepEqual(names.map(p => p.name), products.map(p => p.name).sort((a,b) => a.localeCompare(b,"en")));
   const featuredCount = products.filter(p => p.featured).length;
   assert.ok(featured.slice(0, featuredCount).every(p => p.featured));

@@ -10,6 +10,6 @@ export function ProductCard({product}:{product:Product}) {
       {cover.src && <Image src={cover.src} alt={cover.alt} fill sizes="(max-width: 359px) 90vw, (max-width: 959px) 45vw, 23vw" />}
       {alternate?.src && <Image className="product-hover-image" src={alternate.src} alt="" fill sizes="(max-width: 959px) 45vw, 23vw" />}
       {cover.placeholder && <span className="image-note">Image placeholder</span>}
-    </div><h3>{product.name}</h3><p className="card-material">{product.stone ?? "Material details pending"}</p><p className="card-price">{formatPrice(product.price)} <span>USD</span></p>
+    </div><h3>{product.name}</h3><p className="card-material">{product.material ?? product.stone ?? "Material details pending"}</p><p className="card-price">{formatPrice(product.price)} {product.price !== null && <span>USD</span>}</p>
   </Link>;
 }

@@ -35,8 +35,8 @@ export function filterAndSortProducts(
 ): Product[] {
   const selected = catalog.filter((product) => !category || product.category === category);
   switch (sort) {
-    case "price-asc": return selected.sort((a, b) => a.price - b.price);
-    case "price-desc": return selected.sort((a, b) => b.price - a.price);
+    case "price-asc": return selected.sort((a, b) => a.price === null ? (b.price === null ? 0 : 1) : b.price === null ? -1 : a.price - b.price);
+    case "price-desc": return selected.sort((a, b) => a.price === null ? (b.price === null ? 0 : 1) : b.price === null ? -1 : b.price - a.price);
     case "name-asc": return selected.sort((a, b) => a.name.localeCompare(b.name, "en"));
     default: return selected.sort((a, b) => Number(b.featured) - Number(a.featured));
   }
