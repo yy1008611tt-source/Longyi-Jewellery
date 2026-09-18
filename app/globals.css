@@ -192,7 +192,7 @@ button,a{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button[ar
 
 /* Data-selected editorial PDP; legacy product and homepage layouts stay intact. */
 .pdp-editorial-layout{grid-template-areas:"gallery info" "natural natural" "accordions accordions";grid-template-rows:auto;row-gap:64px}
-.pdp-carousel{grid-area:gallery;min-width:0}.pdp-editorial-information{grid-area:info;position:sticky;top:24px}
+.pdp-carousel{grid-area:gallery;min-width:0}.pdp-editorial-information{grid-area:info;position:static;top:auto}
 .pdp-editorial-accordions{grid-area:accordions;margin-top:0;min-width:0}
 .pdp-editorial-accordions p+.product-facts{margin-top:20px}
 .pdp-editorial-information .eyebrow{margin-bottom:16px}
