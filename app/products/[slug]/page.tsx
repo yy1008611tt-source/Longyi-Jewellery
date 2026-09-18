@@ -5,7 +5,7 @@ import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { ProductCard } from "@/components/product/product-card";
 import { ProductGallery } from "@/components/product/product-gallery";
 import { ProductInformation } from "@/components/product/product-information";
-import { NaturallyUnique, ProductAccordions, SizeAndScale } from "@/components/product/product-editorial-sections";
+import { NaturallyUnique, ProductAccordions } from "@/components/product/product-editorial-sections";
 import { products, categoryName } from "@/data/catalog";
 import { relatedProducts } from "@/lib/catalog";
 type Props = { params: Promise<{slug:string}> };
@@ -23,7 +23,7 @@ export default async function ProductPage({params}:Props){
     <div className={`product-detail ${editorial ? "pdp-editorial-layout" : ""}`}>
       <ProductGallery images={p.images} name={p.name} pdpLayout={p.pdpLayout} />
       <ProductInformation key={p.slug} product={p} />
-      {editorial && <><NaturallyUnique product={p} /><ProductAccordions product={p} /><SizeAndScale product={p} /></>}
+      {editorial && <><NaturallyUnique product={p} /><ProductAccordions product={p} /></>}
     </div>
     <section className="related-section"><div className="section-heading"><h2 className="section-label">MORE TO EXPLORE</h2><Link className="text-link" href="/shop">Shop All ↗</Link></div><div className="product-grid">{relatedProducts(products,p).map(item=><ProductCard key={item.id} product={item} />)}</div></section>
   </main>;

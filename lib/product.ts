@@ -3,6 +3,9 @@ import type { Product, ProductImage } from "@/types/product";
 export const availableImages = (images: readonly ProductImage[]) =>
   images.filter((image): image is ProductImage & { src: string } => !!image.src?.trim());
 
+export const galleryImages = (images: readonly ProductImage[]) =>
+  availableImages(images).filter(image => image.role !== "size-guide");
+
 export const hasPrice = (price: Product["price"]): price is number =>
   price !== null && Number.isFinite(price) && price >= 0;
 
@@ -21,4 +24,3 @@ export function coreAttributes(product: Product): [string, string][] {
   ];
   return fields.filter((field): field is [string, string] => !!field[1]);
 }
-

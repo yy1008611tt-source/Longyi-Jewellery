@@ -3,11 +3,13 @@ import type { Product } from "@/types/product";
 import { formatPrice } from "@/lib/format";
 import { brand } from "@/data/brand";
 import { ProductOptions } from "./product-options";
-import { coreAttributes } from "@/lib/product";
+import { availableImages, coreAttributes } from "@/lib/product";
 import { categoryName } from "@/data/catalog";
 import { ProductFacts } from "./product-editorial-sections";
+import { ProductSizeGuide } from "./product-size-guide";
 
 export function ProductInformation({product:p}: {product:Product}) {
+  const guide = availableImages(p.images).find(image => image.role === "size-guide");
   if (p.pdpLayout === "editorial") return <div className="product-information pdp-editorial-information">
     <p className="eyebrow">{categoryName(p.category)}</p>
     <h1>{p.name}</h1>
@@ -15,7 +17,7 @@ export function ProductInformation({product:p}: {product:Product}) {
     {p.reviews && p.reviews.count > 0 && <p className="review-line">★ {p.reviews.rating.toFixed(1)} ({p.reviews.count})</p>}
     <p className="detail-price">{formatPrice(p.price)}{p.price !== null && <span>USD</span>}</p>
     <p className="detail-description">{p.shortDescription}</p>
-    <div className="pdp-core-attributes"><ProductFacts rows={coreAttributes(p)} /></div>
+    <div className="pdp-core-attributes"><ProductFacts rows={coreAttributes(p)} sizeGuide={guide && p.beadSize ? <ProductSizeGuide image={guide} beadSize={p.beadSize} /> : undefined} /></div>
     <ProductOptions product={p} showMeasurements={false} />
   </div>;
   const facts = [

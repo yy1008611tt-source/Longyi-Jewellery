@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { sku001, products } from "../data/catalog.ts";
-import { availableImages, coreAttributes, hasPrice } from "../lib/product.ts";
+import { availableImages, galleryImages, coreAttributes, hasPrice } from "../lib/product.ts";
 import { formatPrice } from "../lib/format.ts";
 
 test("SKU 001 retains unknown commercial fields without inheriting demo claims", () => {
@@ -30,4 +30,13 @@ test("product facts omit unknown wrist measurements and preserve confirmed mater
 test("gallery displays only supplied images in order and accepts future image roles", () => {
   assert.deepEqual(availableImages(sku001.images).map(i => i.role), ["main","detail","size-guide"]);
   assert.equal(availableImages([...sku001.images, {role:"on-wrist",alt:"Pending"}, {role:"packaging",src:" ",alt:"Pending"}]).length, 3);
+});
+
+test("concentrated gallery excludes the size guide without mutating product data", () => {
+  const original = JSON.stringify(sku001);
+  assert.deepEqual(galleryImages(sku001.images).map(i => i.role), ["main", "detail"]);
+  const future = ["product","on-wrist","lifestyle","natural-variation","construction","packaging"].map(role => ({role,src:`/future/${role}.png`,alt:role}));
+  assert.equal(galleryImages([...sku001.images, ...future, {role:"detail",src:"",alt:"Pending"}]).length, 8);
+  assert.deepEqual(galleryImages([]), []);
+  assert.equal(JSON.stringify(sku001), original);
 });
