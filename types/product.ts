@@ -20,13 +20,13 @@ export interface Product {
   name: string;
   category: Category;
   price: number | null;
-  wristSizes?: { id: string; label: string }[];
+  wristSizes?: { id: string; label: string; description?: string }[];
   customSizing?: boolean;
   sizingDescription?: string;
   measuringInstructions?: string;
   fitAdjustment?: string;
   materialVariation?: string;
-  whatsapp?: { name: string; number: string; sizingMessage: string; tradeMessage?: string };
+  whatsapp?: { name: string; number: string; sizingMessage: string; tradeMessage?: string; customSizingMessage?: string; productMessage?: string };
   tradeAvailable?: boolean;
   tradeMOQ?: number;
   tradePricingType?: "inquiry";

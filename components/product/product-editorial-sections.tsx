@@ -35,12 +35,13 @@ export function ProductAccordions({ product: p }: { product: Product }) {
       {p.customSizing && p.fitAdjustment && <p>{p.fitAdjustment}</p>}
       {p.wristFitCm && <p>Wrist fit: {p.wristFitCm} cm{p.wristFitIn ? ` / ${p.wristFitIn} in` : ""}</p>}
       {!p.wristFitCm && p.wristFitIn && <p>Wrist fit: {p.wristFitIn} in</p>}
+      {p.whatsapp?.customSizingMessage && <p>Need a different size? <a className="text-link" href={whatsappLink(p.whatsapp.number,p.whatsapp.customSizingMessage)} target="_blank" rel="noopener noreferrer">Contact {p.whatsapp.name} on WhatsApp.</a></p>}
     </div></details>
     <details><summary>CARE</summary><div>{p.care?.split("\n").map(line => <p key={line}>{line}</p>)}</div></details>
     <details><summary>SHIPPING &amp; RETURNS</summary><div>
       {p.shippingPolicy?.length ? <><h3 className="section-label">SHIPPING</h3>{p.shippingPolicy.map(line=><p key={line}>{line}</p>)}</> : p.shippingNote && <p>{p.shippingNote}</p>}
       {p.exchangePolicy ? <><h3 className="section-label">RETURNS &amp; EXCHANGES</h3><h4>{p.exchangePolicy.title}</h4>{p.exchangePolicy.paragraphs.map(line=><p key={line}>{line}</p>)}</> : <Link className="text-link" href="/shipping-returns">Shipping &amp; Returns ↗</Link>}
-      {p.whatsapp && <a className="text-link" href={whatsappLink(p.whatsapp.number,p.whatsapp.sizingMessage)} target="_blank" rel="noopener noreferrer">Contact {p.whatsapp.name} on WhatsApp for sizing help</a>}
+      {p.whatsapp && <p>If you have sizing concerns before ordering, <a className="text-link" href={whatsappLink(p.whatsapp.number,p.whatsapp.sizingMessage)} target="_blank" rel="noopener noreferrer">contact {p.whatsapp.name} on WhatsApp</a> for assistance.</p>}
     </div></details>
   </div>;
 }

@@ -18,13 +18,13 @@ export function ProductInformation({product:p}: {product:Product}) {
     {p.reviews && p.reviews.count > 0 && <p className="review-line">★ {p.reviews.rating.toFixed(1)} ({p.reviews.count})</p>}
     <p className="detail-price">{formatPrice(p.price)}{p.price !== null && <span>USD</span>}</p>
     <p className="detail-description">{p.shortDescription}</p>
-    <ProductOptions product={p} showMeasurements={false} sizeGuide={guide && p.beadSize ? <ProductSizeGuide key="size-guide" image={guide} beadSize={p.beadSize} measuringInstructions={p.measuringInstructions} /> : undefined}>
+    <ProductOptions product={p} showMeasurements={false} sizeGuide={guide && p.beadSize ? <ProductSizeGuide key="size-guide" image={guide} beadSize={p.beadSize} product={p} /> : undefined}>
       <div key="core-attributes" className="pdp-core-attributes"><ProductFacts rows={coreAttributes(p)} /></div>
     </ProductOptions>
     {p.tradeAvailable === true && p.tradeMOQ && p.tradePricingType === "inquiry" && p.whatsapp?.tradeMessage && p.tradeCopy && <section className="pdp-trade" aria-label="Trade and wholesale">
       <h2 className="section-label">TRADE &amp; WHOLESALE</h2>
-      <p>Wholesale orders start from {p.tradeMOQ} pieces.</p><p>{p.tradeCopy.pricing}</p><p>{p.tradeCopy.contact}</p>
-      <a className="text-link" href={whatsappLink(p.whatsapp.number,p.whatsapp.tradeMessage)} target="_blank" rel="noopener noreferrer">Wholesale Inquiry</a>
+      <p>Minimum wholesale order: {p.tradeMOQ} pieces.</p><p>{p.tradeCopy.pricing}</p><p>{p.tradeCopy.contact}</p>
+      <a className="pdp-wholesale-button" href={whatsappLink(p.whatsapp.number,p.whatsapp.tradeMessage)} target="_blank" rel="noopener noreferrer">WHOLESALE INQUIRY</a>
     </section>}
   </div>;
   const facts = [
