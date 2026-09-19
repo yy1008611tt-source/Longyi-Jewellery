@@ -11,7 +11,7 @@ export interface ProductImage {
   alt: string;
   role: "Front" | "Model" | "Detail" | "Side" | "Scale" | "Lifestyle"
     | "main" | "product" | "detail" | "on-wrist" | "size-guide"
-    | "natural-variation" | "construction" | "lifestyle" | "packaging";
+    | "natural-variation" | "construction" | "lifestyle" | "packaging" | "macro-detail";
   placeholder?: boolean;
 }
 export interface Product {
@@ -20,6 +20,19 @@ export interface Product {
   name: string;
   category: Category;
   price: number | null;
+  wristSizes?: { id: string; label: string }[];
+  customSizing?: boolean;
+  sizingDescription?: string;
+  measuringInstructions?: string;
+  fitAdjustment?: string;
+  materialVariation?: string;
+  whatsapp?: { name: string; number: string; sizingMessage: string; tradeMessage?: string };
+  tradeAvailable?: boolean;
+  tradeMOQ?: number;
+  tradePricingType?: "inquiry";
+  tradeCopy?: { pricing: string; contact: string };
+  shippingPolicy?: string[];
+  exchangePolicy?: { title: string; paragraphs: string[] };
   pdpLayout?: "editorial";
   subtitle?: string;
   material?: string; // Supplied commercial material description, distinct from stone identity.

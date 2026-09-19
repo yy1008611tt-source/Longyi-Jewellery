@@ -239,6 +239,25 @@ body:has(.pdp-size-dialog[open],.pdp-image-dialog[open]){overflow:hidden}
 .pdp-size-measurement span{display:inline-block;margin-left:12px;font:14px/1.5 var(--font-body);color:var(--color-muted)}
 .pdp-size-reference{font-size:13px;line-height:1.7;margin-block:18px 24px}
 .pdp-size-guide-image{position:relative;aspect-ratio:1087/1446}.pdp-size-guide-image img{object-fit:contain}
+.pdp-wrist-options fieldset{border:0;padding:0;margin:0;min-width:0}
+.pdp-wrist-options legend{font-size:14px;margin-bottom:12px}
+.pdp-wrist-options .size-options{gap:8px}
+.pdp-wrist-options .size-options button{flex:1;white-space:nowrap;padding:10px 8px;font-size:13px}
+.pdp-wrist-options .size-options [aria-pressed=true]{background:#3d5544;border-color:#3d5544;color:#fff}
+.pdp-wrist-options p{margin-top:14px}.pdp-wrist-options a{text-decoration:underline;text-underline-offset:4px}
+.pdp-sizing-help{font-size:12px;line-height:1.7;margin-top:20px;color:var(--color-muted)}
+.pdp-sizing-help .text-link,.pdp-trade .text-link{display:inline-flex;align-items:center;min-height:44px}
+.pdp-editorial .pdp-core-attributes{margin-bottom:26px}
+.pdp-editorial .purchase-status{min-height:3.4em}
+.pdp-trade{border-top:1px solid var(--color-border);margin-top:28px;padding-top:24px;font-size:13px;color:var(--color-muted)}
+.pdp-trade h2{color:var(--color-text);margin-bottom:16px}.pdp-trade p+p{margin-top:8px}
+.pdp-wrist-measuring{font-size:13px;margin-block:20px}.pdp-wrist-measuring h3{font:inherit;font-weight:500;margin-bottom:8px}
+.pdp-natural-with-image{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(28px,5vw,72px)}
+.pdp-natural-image{position:relative;aspect-ratio:4/3;min-width:0}.pdp-natural-image img{object-fit:contain}
+.pdp-natural-with-image .pdp-story-copy{text-align:left}
+.pdp-editorial-accordions h3,.pdp-editorial-accordions h4{margin-block:20px 12px}
+.pdp-editorial-accordions ul{list-style:disc;padding-left:20px;margin-bottom:20px}
+@media(max-width:959px){.pdp-natural-with-image{grid-template-columns:1fr}}
 @media(max-width:959px){
  .pdp-editorial-layout{grid-template-areas:"gallery" "info" "natural" "accordions";row-gap:36px}
  .pdp-editorial-information{position:static;max-width:none}.pdp-natural{padding-top:44px;margin-top:12px}

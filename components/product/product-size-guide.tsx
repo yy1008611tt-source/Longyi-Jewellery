@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useId, useRef, useState } from "react";
 import type { ProductImage } from "@/types/product";
 
-export function ProductSizeGuide({ image, beadSize }: { image: ProductImage & { src: string }; beadSize: number }) {
+export function ProductSizeGuide({ image, beadSize, measuringInstructions }: { image: ProductImage & { src: string }; beadSize: number; measuringInstructions?: string }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const id = useId();
@@ -25,6 +25,7 @@ export function ProductSizeGuide({ image, beadSize }: { image: ProductImage & { 
         <p className="pdp-size-selected">{beadSize} mm selected</p>
         <p className="pdp-size-measurement">{beadSize} mm <span>≈ {(beadSize / 25.4).toFixed(2)} in</span></p>
         <p className="pdp-size-reference">For bead-size comparison only.<br />This bracelet is offered with approximately {beadSize} mm beads.<br />Other bracelet designs shown are for scale reference.</p>
+        {measuringInstructions && <div className="pdp-wrist-measuring"><h3>How to measure your wrist</h3><p>{measuringInstructions}</p></div>}
         {open && <div className="pdp-size-guide-image"><Image src={image.src} alt={image.alt} fill sizes="(max-width: 599px) 90vw, 540px" unoptimized loading="eager" /></div>}
       </div>
     </dialog>

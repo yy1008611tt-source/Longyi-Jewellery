@@ -41,7 +41,7 @@ const demoProducts: Product[] = samples.map((sample) => ({
     { alt: "This piece styled for everyday wear", role: "Lifestyle", placeholder: true },
   ],
 }));
-// SKU 001 uses only supplied facts. Unconfirmed price and fit remain null.
+// SKU 001 uses confirmed retail/trade terms. Wrist ranges are made-to-fit choices, not stock.
 export const sku001: Product = {
   id: "001",
   sku: "001",
@@ -60,7 +60,46 @@ export const sku001: Product = {
   productType: "natural-variation",
   gender: "Unisex",
   useCase: "Everyday wear",
-  price: null,
+  price: 150,
+  wristSizes: [
+    { id: "small", label: "14–16 cm" },
+    { id: "medium", label: "16–18 cm" },
+    { id: "large", label: "18–20 cm" },
+  ],
+  customSizing: true,
+  sizingDescription: "Measure your wrist circumference and choose the closest range. Each bracelet is adjusted by adding or removing beads for a comfortable fit.",
+  measuringInstructions: "Wrap a soft measuring tape snugly around your wrist where you normally wear a bracelet. Choose the closest size range above.",
+  fitAdjustment: "Each bracelet can be adjusted by adding or removing beads according to the selected wrist-size range.",
+  materialVariation: "Color, pattern and translucency may vary naturally from piece to piece.",
+  whatsapp: {
+    name: "Tong",
+    number: "8618825229842",
+    sizingMessage: "Hi Tong, I'm interested in the Verdant Beaded Bracelet. Could you help me choose the right wrist size?",
+    tradeMessage: "Hi Tong, I'm interested in wholesale purchasing for the Verdant Beaded Bracelet. I'd like to ask about trade pricing and availability for 10 pieces or more.",
+  },
+  tradeAvailable: true,
+  tradeMOQ: 10,
+  tradePricingType: "inquiry",
+  tradeCopy: {
+    pricing: "Trade pricing is provided by inquiry only.",
+    contact: "Contact Tong on WhatsApp for pricing, availability and order details.",
+  },
+  shippingNote: "$20 shipping · Free shipping on orders $300+",
+  shippingPolicy: [
+    "A flat $20 USD shipping fee applies to orders under $300 USD.",
+    "Orders of $300 USD or more qualify for free shipping.",
+  ],
+  exchangePolicy: {
+    title: "Final Sale — Fit Exchanges Only",
+    paragraphs: [
+      "All sales are final and returns are not accepted.",
+      "If the bracelet fit is unsuitable, you may request a size exchange for the same product within 3 days of delivery.",
+      "The item must remain unworn, undamaged, and in its complete original packaging.",
+      "A continuous unboxing video recorded when the package is first opened is required for exchange verification.",
+      "Customers are responsible for all shipping costs associated with the exchange.",
+      "Exchanges for a different product or style are not available.",
+    ],
+  },
   wristFitCm: null,
   wristFitIn: null,
   featured: false,
@@ -75,6 +114,10 @@ export const sku001: Product = {
   images: [
     { src: "/images/products/001/01-main.png", role: "main", alt: "Verdant Beaded Bracelet on a warm ivory background" },
     { src: "/images/products/001/02-stone-detail.png", role: "detail", alt: "Close-up of three green Feizhoucui beads showing natural variation" },
+    { src: "/images/products/001/04-female-on-wrist.png", role: "on-wrist", alt: "Verdant Beaded Bracelet worn with an ivory shirt" },
+    { src: "/images/products/001/05-male-on-wrist.png", role: "on-wrist", alt: "Verdant Beaded Bracelet worn with a dark knitted sweater" },
+    { src: "/images/products/001/06-natural-variation.png", role: "natural-variation", alt: "Three Verdant bracelets showing individual variations in green tones and patterns" },
+    { src: "/images/products/001/07-macro-detail.png", role: "macro-detail", alt: "Macro view of polished Feizhoucui beads and their individual textures" },
     { src: "/images/products/001/03-bead-size-guide.png", role: "size-guide", alt: "Wrist comparison showing bead sizes from 4 mm to 12 mm, including 8 mm" },
   ],
 };
