@@ -6,7 +6,7 @@ import { homeCategoryImages } from "@/data/brand";
 export function CategoryMosaic() {
   return (
     <section className="section wide-container home-categories" aria-labelledby="category-heading">
-      <div className="section-heading"><h2 id="category-heading" className="section-label">SHOP BY CATEGORY</h2></div>
+      <div className="section-heading"><h2 id="category-heading" className="section-label">Explore the Collection</h2></div>
       <div className="category-mosaic">
         {collections.map((collection) => {
           const photo = homeCategoryImages[collection.slug];

@@ -1,19 +1,21 @@
+import { chineseTerminology } from "./terminology";
+
 export const brand = {
   name: "Longyi Jewellery",
+  chineseName: chineseTerminology["Longyi Jewellery"],
   hero: {
-    title: "Naturally Distinctive.",
-    description: "Jewelry crafted to celebrate the unique beauty of natural stone.",
+    title: "Made by Nature. Worn Your Way.",
+    description: "Natural stone jewelry designed for everyday life — each piece shaped by its own color, texture and character.",
     image: "/images/home/hero-main.png",
     imageBrief: "Woman wearing green natural stone necklace, earrings, ring and bracelet against a deep green background",
   },
-  // Configurable draft claims. Approve wording against actual business operations before launch.
+  whyTitle: "From Source to Store.",
+  whyDescription: "We stay close to every step — from material selection to the finished piece — with a hands-on approach focused on quality, consistency and transparency.",
   advantages: [
-    { title: "FROM OUR OWN WORKSHOP", text: "From material selection to finished jewelry, we work closely with every stage of the process." },
-    { title: "NATURAL MATERIALS. TRANSPARENTLY PRESENTED.", text: "We believe you should know what you are wearing. Material and treatment information is presented clearly for every piece." },
-    { title: "INDIVIDUALLY SELECTED", text: "Every piece is individually inspected and selected for colour, texture, translucency and overall character." },
-    { title: "VISIT US IN STORE", text: "Experience our jewelry in person at our physical retail location. Location details will be shared before launch." },
+    { title: "Closer to the Source", text: "A closer connection to sourcing and production helps us understand the materials we work with and stay involved throughout the process." },
+    { title: "A Real Place, A Real Presence", text: "Our physical presence gives customers another way to experience our jewelry beyond the screen." },
   ],
-  advantagesAreDraft: true,
+  advantagesAreDraft: false,
   storeAddress: null as string | null,
   workshopImage: "/images/workshop-placeholder.png",
   naturalVariation: "Formed by nature, each stone has its own variations in colour, texture and translucency. These natural differences are part of what makes every piece unique.",
