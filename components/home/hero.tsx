@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero-media">
-        <Image src={brand.hero.image} alt={brand.hero.imageBrief} fill preload sizes="100vw" />
+        <Image src={brand.hero.image} alt={brand.hero.imageBrief} fill preload sizes="100vw" quality={95} />
       </div>
       <div className="hero-copy">
         <h1 id="hero-title">{brand.hero.title}</h1>

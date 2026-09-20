@@ -6,7 +6,7 @@ export const brand = {
   hero: {
     title: "Made by Nature. Worn Your Way.",
     description: "Natural stone jewelry designed for everyday life — each piece shaped by its own color, texture and character.",
-    image: "/images/home/hero-main.png",
+    image: "/images/home/hero-main-v2.png",
     imageBrief: "Woman wearing green natural stone necklace, earrings, ring and bracelet against a deep green background",
   },
   whyTitle: "From Source to Store.",

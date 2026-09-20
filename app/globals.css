@@ -146,7 +146,7 @@ body:has(dialog[open]) .customer-help{visibility:hidden}
 /* Homepage campaign photography. Other pages retain their existing styles. */
 .hero{height:85svh;min-height:680px;max-height:900px;position:relative;isolation:isolate;background:#20372b;color:#F4F0E8}
 .hero-media{position:absolute;inset:0;z-index:-1}
-.hero-media img{object-fit:cover;object-position:100% 50%}
+.hero-media img{object-fit:cover;object-position:50% 50%}
 .hero-copy{position:absolute;top:54%;left:clamp(48px,6vw,110px);transform:translateY(-50%);width:40%;max-width:580px}
 .hero h1{font-size:clamp(58px,5vw,72px);font-weight:400;line-height:1.06;letter-spacing:-.025em;text-wrap:balance}
 .hero-copy>p{font-size:clamp(18px,1.4vw,21px);line-height:1.6;max-width:380px;margin-block:26px 30px}
@@ -177,7 +177,7 @@ body:has(dialog[open]) .customer-help{visibility:hidden}
   .hero-copy{left:40px;width:40%;top:56%}
   .hero h1{font-size:clamp(46px,5.1vw,60px)}
   .hero-copy>p{font-size:17px;max-width:26vw}
-  .hero-media img{object-position:94% 50%}
+  .hero-media img{object-position:50% 50%}
   .category-mosaic{grid-template-rows:34cqw 29cqw;gap:12px}
   .mosaic-caption{left:18px;right:12px;bottom:20px;gap:10px}
   .mosaic-caption h3{font-size:20px}.mosaic-bangles h3{font-size:32px}
