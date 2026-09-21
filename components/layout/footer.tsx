@@ -5,7 +5,7 @@ const groups = [
   { title: "SHOP", links: collections.map(c=>[c.name,`/collections/${c.slug}`]) },
   { title: "ABOUT", links: [["About Longyi","/about"],["About Feizhoucui","/about-feizhoucui"]] },
   { title: "OUR SERVICES", links: [["Shipping","/shipping-returns"],["Returns","/shipping-returns"],["Care Guide","/care-guide"],["Size Guide","/size-guide"]] },
-  { title: "CONTACT", links: [["Contact Us","/contact"],["Visit Us","/visit-us"],["Trade & Wholesale","/#trade"]] },
+  { title: "CONTACT", links: [["Contact Us","/contact"],["Email Us","/contact"],["Visit Us","/visit-us"],["Trade & Wholesale","/#trade"]] },
 ];
 export function Footer() {
   return <footer className="site-footer"><div className="container">

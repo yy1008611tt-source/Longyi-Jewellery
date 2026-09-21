@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import Link from "next/link";
 import {notFound} from "next/navigation";
-const pages:Record<string,string>={about:"About Longyi",contact:"Contact Us",craftsmanship:"Craftsmanship",faq:"FAQ","shipping-returns":"Shipping & Returns","privacy-policy":"Privacy Policy","terms-conditions":"Terms & Conditions","care-guide":"Care Guide","size-guide":"Size Guide","visit-us":"Visit Us"};
+const pages:Record<string,string>={about:"About Longyi",craftsmanship:"Craftsmanship",faq:"FAQ","shipping-returns":"Shipping & Returns","privacy-policy":"Privacy Policy","terms-conditions":"Terms & Conditions","care-guide":"Care Guide","size-guide":"Size Guide","visit-us":"Visit Us"};
 export const dynamicParams=false;
 export function generateStaticParams(){return Object.keys(pages).map(slug=>({slug:[slug]}));}
 type Props={params:Promise<{slug:string[]}>};

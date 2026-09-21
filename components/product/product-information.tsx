@@ -8,6 +8,7 @@ import { categoryName } from "@/data/catalog";
 import { ProductFacts } from "./product-editorial-sections";
 import { ProductSizeGuide } from "./product-size-guide";
 import { whatsappLink } from "@/lib/whatsapp";
+import { inquiryHref } from "@/lib/inquiry";
 
 export function ProductInformation({product:p}: {product:Product}) {
   const guide = availableImages(p.images).find(image => image.role === "size-guide");
@@ -24,7 +25,8 @@ export function ProductInformation({product:p}: {product:Product}) {
     {p.tradeAvailable === true && p.tradeMOQ && p.tradePricingType === "inquiry" && p.whatsapp?.tradeMessage && p.tradeCopy && <section className="pdp-trade" aria-label="Trade and wholesale">
       <h2 className="section-label">TRADE &amp; WHOLESALE</h2>
       <p>Minimum wholesale order: {p.tradeMOQ} pieces.</p><p>{p.tradeCopy.pricing}</p><p>{p.tradeCopy.contact}</p>
-      <a className="pdp-wholesale-button" href={whatsappLink(p.whatsapp.number,p.whatsapp.tradeMessage)} target="_blank" rel="noopener noreferrer">WHOLESALE INQUIRY</a>
+      <div className="inquiry-contact-links"><Link className="pdp-wholesale-button" href={inquiryHref("trade",p.slug)}>WHOLESALE INQUIRY</Link>
+      <a className="text-link" href={whatsappLink(p.whatsapp.number,p.whatsapp.tradeMessage)} target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></div>
     </section>}
   </div>;
   const facts = [

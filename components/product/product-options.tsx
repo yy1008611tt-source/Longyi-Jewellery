@@ -3,6 +3,8 @@ import { useState, type ReactNode } from "react";
 import type { Product } from "@/types/product";
 import { hasPrice } from "@/lib/product";
 import { whatsappLink } from "@/lib/whatsapp";
+import Link from "next/link";
+import { inquiryHref } from "@/lib/inquiry";
 export function ProductOptions({product,showMeasurements=true,children,sizeGuide}: {product:Product;showMeasurements?:boolean;children?:ReactNode;sizeGuide?:ReactNode}) {
   const [size,setSize]=useState<number|undefined>();
   const [wristSize,setWristSize]=useState<string>();
@@ -24,6 +26,6 @@ export function ProductOptions({product,showMeasurements=true,children,sizeGuide
     <button type="button" className="button purchase-button" aria-describedby="purchase-status" onClick={()=>setMessage(product.wristSizes?.length && !wristSize ? "Please select your wrist size." : "Online shopping is coming soon. No item has been added to a bag.")}>ADD TO BAG</button>
     <p id="purchase-status" className="purchase-status" role="status">{message || "Preview only · Online purchasing is coming soon."}</p>
     <p className="shipping-note">{product.shippingNote ?? "Shipping and returns terms will be confirmed before launch."}</p>
-    {product.whatsapp?.productMessage && <div className="pdp-product-help"><p>Need help with this product?</p><a className="text-link" href={whatsappLink(product.whatsapp.number,product.whatsapp.productMessage)} target="_blank" rel="noopener noreferrer">Chat with {product.whatsapp.name} →</a></div>}
+    {product.whatsapp?.productMessage && <div className="pdp-product-help"><p>Need help with this product?</p><div className="inquiry-contact-links"><a className="text-link" href={whatsappLink(product.whatsapp.number,product.whatsapp.productMessage)} target="_blank" rel="noopener noreferrer">Chat with {product.whatsapp.name} →</a><Link className="text-link" href={inquiryHref("product",product.slug)}>Email Us</Link></div></div>}
   </div>;
 }

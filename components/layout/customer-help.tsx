@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { contact } from "@/data/contact";
 import { whatsappLink } from "@/lib/whatsapp";
+import Link from "next/link";
 
 export function CustomerHelp() {
   const panel = useRef<HTMLDetailsElement>(null);
@@ -18,6 +19,7 @@ export function CustomerHelp() {
       <h2>Hi, I’m {contact.name}.</h2>
       <p>Need help with a product or your order?</p>
       <a href={whatsappLink(contact.whatsappNumber,contact.helpMessage)} target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+      <Link href="/contact" onClick={close}>Email Us</Link>
     </div>
   </details>;
 }
