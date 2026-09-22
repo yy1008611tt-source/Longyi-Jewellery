@@ -21,7 +21,11 @@ export function createInquiryHandler({products, send, now=Date.now}: {
     item.count++; attempts.set(key,item); return true;
   }
   return async function POST(request: Request): Promise<Response> {
-    if(request.headers.get("origin")!==new URL(request.url).origin || request.headers.get("sec-fetch-site")==="cross-site") return response(failure,403);
+    const requestUrl=new URL(request.url);
+    // Next can normalize the internal URL to localhost; compare the browser's actual Host.
+    const host=request.headers.get("host") ?? requestUrl.host;
+    const expectedOrigin=`${requestUrl.protocol}//${host}`;
+    if(request.headers.get("origin")!==expectedOrigin || request.headers.get("sec-fetch-site")==="cross-site") return response(failure,403);
     if(!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) return response(failure,415);
     if(!take("global",60)) return response(failure,429);
     let input:unknown;

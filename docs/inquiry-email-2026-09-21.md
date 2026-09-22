@@ -1,5 +1,10 @@
 # Inquiry Form + Email Customer Service — 2026-09-21
 
+## Follow-up — 2026-09-22
+The Gmail App Password is now configured in the private local environment (not committed). An actual Trade inquiry for SKU 001 returned HTTP 200 after Gmail SMTP accepted the message. Inbox receipt remains for the owner to confirm. Test sender name: Longyi Website Email Test. No real order was placed.
+
+Fixed a local origin-validation issue: Next's internal request URL can use localhost while the browser uses 127.0.0.1. Validation now compares Origin to the actual Host and still rejects cross-site requests. Added a regression test. The earlier missing-password status below describes the original delivery, not current local configuration.
+
 ## Delivery
 Implemented /contact and server-only POST /api/inquiry without changing product images, catalog data, prices, shipping/exchange policies, checkout or the home/PDP layout.
 
@@ -49,4 +54,3 @@ Implemented /contact and server-only POST /api/inquiry without changing product 
 - docs/inquiry-email-2026-09-21.md
 
 No SKU 002 or checkout work was started.
-

@@ -10,6 +10,16 @@ const valid={...emptyInquiry,type:"product",name:"Inquiry QA",email:"customer@ex
 const request=(body,headers={})=>new Request("http://localhost/api/inquiry",{method:"POST",headers:{origin:"http://localhost","content-type":"application/json",...headers},body:JSON.stringify(body)});
 const factory=(send=async()=>true,now=()=>Date.UTC(2026,8,21))=>createInquiryHandler({products:choices,send,now});
 
+test("origin validation uses the actual Host when Next normalizes its internal URL",async()=>{
+  let calls=0;
+  const handler=factory(async()=>{calls++;return true;});
+  const headers={host:"127.0.0.1:3000",origin:"http://127.0.0.1:3000"};
+  assert.equal((await handler(request(valid,headers))).status,200);
+  assert.equal((await handler(request(valid,{...headers,origin:"http://evil.example"}))).status,403);
+  assert.equal((await handler(request(valid,{...headers,"sec-fetch-site":"cross-site"}))).status,403);
+  assert.equal(calls,1);
+});
+
 test("inquiry validates all required fields and rejects invalid email/header injection",()=>{
   const result=validateInquiry({},choices);
   assert.equal(result.ok,false);
