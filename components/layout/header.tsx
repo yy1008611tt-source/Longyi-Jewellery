@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { collections } from "@/data/catalog";
 import { Icon } from "./icons";
-const links = [["NEW IN","/new-in"],["COLLECTIONS","/collections"],["ABOUT FEIZHOUCUI","/about-feizhoucui"],["ABOUT","/about"]];
+const links = [["NEW IN","/new-in"],["COLLECTIONS","/collections"],["ABOUT FEIZHOUCUI","/about-feizhoucui"]];
 export function Header() {
   const [open,setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);

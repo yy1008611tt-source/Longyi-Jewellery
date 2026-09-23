@@ -3,7 +3,7 @@ import { collections } from "@/data/catalog";
 import { CustomerHelp } from "./customer-help";
 const groups = [
   { title: "SHOP", links: collections.map(c=>[c.name,`/collections/${c.slug}`]) },
-  { title: "ABOUT", links: [["About Longyi","/about"],["About Feizhoucui","/about-feizhoucui"]] },
+  { title: "DISCOVER", links: [["About Feizhoucui","/about-feizhoucui"]] },
   { title: "OUR SERVICES", links: [["Shipping","/shipping-returns"],["Returns","/shipping-returns"],["Care Guide","/care-guide"],["Size Guide","/size-guide"]] },
   { title: "CONTACT", links: [["Contact Us","/contact"],["Email Us","/contact"],["Visit Us","/visit-us"],["Trade & Wholesale","/#trade"]] },
 ];
