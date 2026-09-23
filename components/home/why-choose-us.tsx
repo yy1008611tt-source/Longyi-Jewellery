@@ -27,8 +27,8 @@ export function WhyChooseUs() {
       <p>We stay close to the details that shape every piece — from understanding the materials we work with to careful selection and the way our jewelry is experienced in person.</p>
     </header>
     <div className={styles.stages}>
-      {stages.map((stage,index)=><article key={stage.label} className={`${styles.row} ${index===1 ? styles.selection : ""} ${index===2 ? styles.store : ""}`} aria-labelledby={`approach-stage-${index}`}>
-        <Image className={styles.image} src={stage.src} alt={stage.alt} width={stage.width} height={stage.height} quality={95} sizes="(max-width: 959px) 90vw, (max-width: 1199px) 48vw, 512px" />
+      {stages.map((stage,index)=><article key={stage.label} className={`${styles.row} ${index===1 ? styles.reverse : ""}`} aria-labelledby={`approach-stage-${index}`}>
+        <div className={styles.media}><Image className={styles.image} src={stage.src} alt={stage.alt} width={stage.width} height={stage.height} quality={95} sizes="(max-width: 679px) 90vw, (max-width: 1023px) 620px, (max-width: 1339px) 44vw, 558px" /></div>
         <div className={styles.copy}><p className={styles.label}>{stage.label}</p><h3 id={`approach-stage-${index}`}>{stage.title}</h3><p>{stage.text}</p></div>
       </article>)}
     </div>
