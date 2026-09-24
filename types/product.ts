@@ -1,4 +1,4 @@
-export type Category = "bangles" | "beaded-bracelets" | "beaded-necklaces" | "earrings" | "rings";
+export type Category = "bangles" | "beaded-bracelets" | "beaded-necklaces" | "pendants" | "earrings" | "rings";
 export interface Collection {
   slug: Category;
   name: string;

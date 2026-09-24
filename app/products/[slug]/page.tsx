@@ -19,7 +19,7 @@ export default async function ProductPage({params}:Props){
   const {slug}=await params;const p=products.find(p=>p.slug===slug);if(!p)notFound();
   const editorial = p.pdpLayout === "editorial";
   return <main id="main-content" className={`wide-container product-page ${editorial ? "pdp-editorial" : ""}`}>
-    <Breadcrumb items={[{label:"Shop",href:"/shop"},...(editorial ? [{label:categoryName(p.category),href:`/collections/${p.category}`}] : []),{label:p.name}]} />
+    <Breadcrumb items={[{label:"Shop",href:"/shop"},{label:categoryName(p.category),href:`/collections/${p.category}`},{label:`${p.sku} · ${p.name}`}]} />
     <div className={`product-detail ${editorial ? "pdp-editorial-layout" : ""}`}>
       <ProductGallery images={p.images} name={p.name} pdpLayout={p.pdpLayout} />
       <ProductInformation key={p.slug} product={p} />

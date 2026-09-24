@@ -14,7 +14,7 @@ const topics=[
 ["Material transparency","Stone identity, trade name, treatment and any available certificate will be presented separately. Unconfirmed information will not be described as a guarantee."],
 ];
 export default function AboutFeizhoucui(){
-  return <main id="main-content" className="container education-page"><Breadcrumb items={[{label:"About Feizhoucui"}]} />
+  return <main id="main-content" className="container education-page"><Breadcrumb items={[{label:"Discover Feizhoucui"}]} />
     <header className="browse-heading"><p className="eyebrow">DISCOVER FEIZHOUCUI</p><h1>A stone with<br />its own character.</h1><p>Natural stone. Clear information. An individual story.</p></header>
     <div className="education-image"><Image src="/images/bangles.svg" alt="Placeholder for a true-to-colour Feizhoucui close-up" fill sizes="90vw" /><span className="concept-label">Stone close-up photography to follow</span></div>
     <div className="education-topics">{topics.map(([title,text],i)=><section key={title}><p className="eyebrow">0{i+1}</p><h2>{title}</h2><p>{text}</p></section>)}</div>

@@ -9,7 +9,9 @@ export function CategoryMosaic() {
       <div className="section-heading"><h2 id="category-heading" className="section-label">Explore the Collection</h2></div>
       <div className="category-mosaic">
         {collections.map((collection) => {
-          const photo = homeCategoryImages[collection.slug];
+          // Navigation may include categories without homepage campaign photography.
+          if (!(collection.slug in homeCategoryImages)) return null;
+          const photo = homeCategoryImages[collection.slug as keyof typeof homeCategoryImages];
           return (
             <Link className={`mosaic-card mosaic-${collection.slug} mosaic-tone-${photo.tone}`} href={`/collections/${collection.slug}`} key={collection.slug}>
               <Image src={photo.src} alt={photo.alt} fill sizes={collection.slug === "bangles" ? "(max-width: 767px) 100vw, (max-width: 1199px) 50vw, (max-width: 1440px) 46vw, 662px" : "(max-width: 767px) 50vw, (max-width: 1199px) 25vw, (max-width: 1440px) 23vw, 323px"} />

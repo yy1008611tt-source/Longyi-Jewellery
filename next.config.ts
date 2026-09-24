@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   images: { qualities: [75, 95] },
   async redirects() {
     return [
+      { source: "/collections", destination: "/shop", permanent: true },
       { source: "/collections/bracelets", destination: "/collections/beaded-bracelets", permanent: true },
       { source: "/new-arrivals", destination: "/new-in", permanent: true },
       { source: "/our-jade", destination: "/about-feizhoucui", permanent: true },

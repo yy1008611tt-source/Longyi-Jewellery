@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { ProductCard } from "@/components/product/product-card";
-import { collections, products } from "@/data/catalog";
+import { products } from "@/data/catalog";
+import { shopCategories as collections } from "@/data/navigation";
 
 type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
@@ -23,7 +24,7 @@ export default async function CollectionPage({ params }: Props) {
   const selection = products.filter((product) => product.category === collection.slug);
   return (
     <main id="main-content" className="container browse-page">
-      <Breadcrumb items={[{ label: "Collections", href: "/collections" }, { label: collection.name }]} />
+      <Breadcrumb items={[{ label: "Shop", href: "/shop" }, { label: collection.name }]} />
       <header className="browse-heading">
         <p className="eyebrow">THE COLLECTION</p>
         <h1>{collection.name}</h1>
@@ -31,7 +32,7 @@ export default async function CollectionPage({ params }: Props) {
       </header>
       <div className="catalog-toolbar">
         <p>{selection.length} {selection.length === 1 ? "Piece" : "Pieces"}</p>
-        <Link className="text-link" href="/collections">All collections <span aria-hidden="true">↗</span></Link>
+        <Link className="text-link" href="/shop">Shop All <span aria-hidden="true">↗</span></Link>
       </div>
       <p className="catalog-disclaimer">Sample collection · Illustrative images · Demo prices in USD</p>
       {selection.length > 0

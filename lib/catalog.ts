@@ -12,7 +12,7 @@ type QueryValue = string | string[] | undefined;
 // Ignore unknown or repeated parameters instead of letting untrusted input select data.
 export function shopSelection(
   query: { category?: QueryValue; sort?: QueryValue },
-  categories: readonly Collection[],
+  categories: readonly Pick<Collection, "slug">[],
 ): { category: Category | undefined; sort: SortOrder } {
   return {
     category: categories.find((item) => item.slug === query.category)?.slug,

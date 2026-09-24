@@ -321,3 +321,12 @@ body:has(.pdp-size-dialog[open],.pdp-image-dialog[open]){overflow:hidden}
  .pdp-size-dialog-header{padding:12px 18px}.pdp-size-dialog-header h2{font-size:28px}
  .pdp-size-dialog-content{padding:20px 18px max(24px,env(safe-area-inset-bottom))}
 }
+
+/* Navigation: Shop is a link with a separate accessible category toggle. */
+.shop-navigation-row{display:flex;align-items:center;gap:2px}
+.shop-navigation-row>a{padding-block:18px}
+.shop-toggle{border:0;background:transparent;color:inherit;min-width:32px;min-height:44px;padding:0 8px}
+.shop-dropdown-links[hidden],.mobile-categories[hidden]{display:none}
+.mobile-navigation>.shop-navigation-row{justify-content:space-between;font-size:13px;letter-spacing:.05em}
+.mobile-navigation>.shop-navigation-row>a{flex:1;padding-block:13px}
+.mobile-navigation .shop-toggle{min-width:44px}

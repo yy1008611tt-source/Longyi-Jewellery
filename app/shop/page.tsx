@@ -3,12 +3,13 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/layout/breadcrumb";
 import { ProductCard } from "@/components/product/product-card";
 import { ShopSort } from "@/components/product/shop-sort";
-import { collections, products } from "@/data/catalog";
+import { products } from "@/data/catalog";
+import { shopCategories as collections } from "@/data/navigation";
 import { filterAndSortProducts, shopHref, shopSelection } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "Shop",
-  description: "Explore bangles, beaded bracelets, beaded necklaces, earrings and rings in our sample everyday jewelry collection.",
+  description: "Explore bangles, beaded bracelets, beaded necklaces, pendants, earrings and rings in our sample everyday jewelry collection.",
 };
 
 export default async function Shop({ searchParams }: {
