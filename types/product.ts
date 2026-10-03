@@ -41,7 +41,9 @@ export interface Product {
   seoDescription?: string;
   materialsFinish?: string[];
   exactPiece?: string[];
-  productType?: "natural-variation" | "exact-piece";
+  productType?: "natural-variation" | "exact-piece" | "exact-pair";
+  accentStones?: string;
+  soldAs?: string;
   construction?: string;
   metalComponents?: string;
   wristFitCm?: string | null;

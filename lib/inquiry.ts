@@ -31,7 +31,8 @@ export function inquiryPrefill(params: Record<string, string | string[] | undefi
   const type = typeof params.type === "string" && inquiryTypes.some(t=>t.value===params.type) ? params.type : "";
   const product = products.find(p=>p.slug===params.product);
   const pendantTrade = type === "trade" && params.interest === "feizhoucui-pendants";
-  return {...emptyInquiry, type, product: product?.slug ?? "", productsInterested: pendantTrade ? "Feizhoucui Pendants" : type==="trade" ? product?.name ?? "" : ""};
+  const earringsTrade = type === "trade" && params.interest === "feizhoucui-earrings";
+  return {...emptyInquiry, type, product: product?.slug ?? "", productsInterested: earringsTrade ? "Feizhoucui Earrings" : pendantTrade ? "Feizhoucui Pendants" : type==="trade" ? product?.name ?? "" : ""};
 }
 const limits: Record<keyof InquiryValues, number> = {
   type: 20, name: 100, email: 254, whatsapp: 40, product: 120, message: 5000,

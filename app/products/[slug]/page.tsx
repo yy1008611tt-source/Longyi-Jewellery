@@ -9,6 +9,7 @@ import { NaturallyUnique, ProductAccordions } from "@/components/product/product
 import { products, categoryName } from "@/data/catalog";
 import { relatedProducts } from "@/lib/catalog";
 import { ExactPieceInformation, ExactPieceStory, ExactPieceAccordions } from "@/components/product/exact-piece-sections";
+import { sku100Schema } from "@/data/sku100";
 type Props = { params: Promise<{slug:string}> };
 export const dynamicParams=false;
 export function generateStaticParams(){return products.map(p=>({slug:p.slug}));}
@@ -19,8 +20,9 @@ export async function generateMetadata({params}:Props):Promise<Metadata>{
 export default async function ProductPage({params}:Props){
   const {slug}=await params;const p=products.find(p=>p.slug===slug);if(!p)notFound();
   const editorial = p.pdpLayout === "editorial";
-  const exactPiece = p.productType === "exact-piece";
+  const exactPiece = p.productType === "exact-piece" || p.productType === "exact-pair";
   return <main id="main-content" className={`wide-container product-page ${editorial ? "pdp-editorial" : ""}`}>
+    {p.sku === "100" && <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(sku100Schema).replace(/</g, "\\u003c")}} />}
     <Breadcrumb items={[{label:"Shop",href:"/shop"},{label:categoryName(p.category),href:`/collections/${p.category}`},{label:`${p.sku} · ${p.name}`}]} />
     <div className={`product-detail ${editorial ? "pdp-editorial-layout" : ""}`}>
       <ProductGallery images={p.images} name={p.name} pdpLayout={p.pdpLayout} />

@@ -1,5 +1,6 @@
 import type { Category, Collection, Product } from "@/types/product";
 import { sku010 } from "./sku010.ts";
+import { sku100 } from "./sku100.ts";
 import { shopCategories } from "./navigation.ts";
 
 export const collections: Collection[] = [
@@ -126,5 +127,5 @@ export const sku001: Product = {
     { src: "/images/products/001/03-bead-size-guide.png", role: "size-guide", alt: "Wrist comparison showing bead sizes from 4 mm to 12 mm, including 8 mm" },
   ],
 };
-export const products: Product[] = [...demoProducts, sku001, sku010];
+export const products: Product[] = [...demoProducts, sku001, sku010, sku100];
 export const categoryName = (slug: Category) => shopCategories.find((c) => c.slug === slug)!.name;
