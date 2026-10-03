@@ -62,7 +62,7 @@ export const sku001: Product = {
   productType: "natural-variation",
   gender: "Unisex",
   useCase: "Everyday wear",
-  price: 150,
+  price: 139,
   wristSizes: [
     { id: "small", label: "14–16 cm", description: "For wrist circumferences between 14 and 16 cm." },
     { id: "medium", label: "16–18 cm", description: "For wrist circumferences between 16 and 18 cm." },
@@ -88,10 +88,10 @@ export const sku001: Product = {
     pricing: "Trade pricing is available by inquiry only.",
     contact: "Contact Tong on WhatsApp for pricing, availability and order details.",
   },
-  shippingNote: "$20 shipping · Free shipping on orders $300+",
+  shippingNote: "$20 shipping · Free shipping on orders $200+",
   shippingPolicy: [
-    "A flat $20 USD shipping fee applies to orders under $300 USD.",
-    "Orders of $300 USD or more qualify for free shipping.",
+    "A flat $20 USD shipping fee applies to orders under $200 USD.",
+    "Orders of $200 USD or more qualify for free shipping.",
   ],
   exchangePolicy: {
     title: "Final Sale — Fit Exchanges Only",

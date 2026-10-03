@@ -43,7 +43,7 @@ Other bracelet designs shown are for scale reference and are not included with t
 
 ## 购买与咨询
 Wrist Size 无默认值，未选点击 ADD TO BAG 显示 Please select your wrist size.
-保留 $150 USD 和 Forest Green 主按钮。
+保留 $139 USD 和 Forest Green 主按钮。
 重要现有限制：项目没有真实购物车/结账实现。选好尺寸后仍显示原有预览提示，不会真正加购；本轮不扩展电商后端，也未伪造加购成功。
 
 购买区域仅保留一处尺寸咨询：
@@ -66,10 +66,10 @@ Contact Tong on WhatsApp for pricing, availability and order details.
 无公开批发价格。
 
 ## Shipping / Exchanges
-购买区：$20 shipping · Free shipping on orders $300+
+购买区：$20 shipping · Free shipping on orders $200+
 Accordion：
-A flat $20 USD shipping fee applies to orders under $300 USD.
-Orders of $300 USD or more qualify for free shipping.
+A flat $20 USD shipping fee applies to orders under $200 USD.
+Orders of $200 USD or more qualify for free shipping.
 
 Final Sale — Fit Exchanges Only
 All sales are final and returns are not accepted.

@@ -20,8 +20,8 @@ export const sku010: Product = {
     "Its natural color, translucency and individual characteristics belong to this specific piece.",
   ],
   care: "Handle with care and store separately when not in use.\nAvoid prolonged contact with perfume, cosmetics and household chemicals.\nGently wipe the 925 sterling silver bail with a soft, dry cloth when needed.",
-  shippingNote: "$20 shipping · Free shipping on orders $300+",
-  shippingPolicy: ["A flat $20 USD shipping fee applies to orders under $300 USD.", "Orders of $300 USD or more qualify for free shipping."],
+  shippingNote: "$20 shipping · Free shipping on orders $200+",
+  shippingPolicy: ["A flat $20 USD shipping fee applies to orders under $200 USD.", "Orders of $200 USD or more qualify for free shipping."],
   exchangePolicy: { title: "FINAL SALE", paragraphs: ["All sales are final and returns are not accepted.", "This is a one-of-a-kind exact-piece item. Please review the product photographs carefully before placing your order."] },
   whatsapp: {
     name: "Tong", number: "8618825229842", sizingMessage: "",

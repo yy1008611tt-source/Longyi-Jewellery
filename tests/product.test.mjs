@@ -7,8 +7,8 @@ import { whatsappLink } from "../lib/whatsapp.ts";
 
 test("SKU 001 retains unknown commercial fields without inheriting demo claims", () => {
   assert.equal(products.filter(p => p.sku.startsWith("DEMO-")).length, 10);
-  assert.equal(sku001.price, 150);
-  assert.equal(formatPrice(sku001.price), "$150");
+  assert.equal(sku001.price, 139);
+  assert.equal(formatPrice(sku001.price), "$139");
   assert.equal(hasPrice(sku001.price), true);
   assert.equal(formatPrice(null), "Price coming soon");
   assert.equal(hasPrice(null), false);
