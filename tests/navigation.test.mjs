@@ -10,8 +10,8 @@ test("all six shopping categories are distinct and include Pendants", () => {
   assert.deepEqual(primaryLinks.map(([, href]) => href), ["/", "/new-in", "/about-feizhoucui"]);
 });
 
-test("Pendants resolves as a category with an honest empty selection", () => {
+test("Pendants resolves as a category with its first exact-piece product", () => {
   const result = shopSelection({category: "pendants"}, shopCategories);
   assert.equal(result.category, "pendants");
-  assert.deepEqual(filterAndSortProducts(products, result.category), []);
+  assert.deepEqual(filterAndSortProducts(products, result.category).map(p => p.sku), ["010"]);
 });

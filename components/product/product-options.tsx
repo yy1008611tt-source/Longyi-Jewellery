@@ -9,7 +9,7 @@ export function ProductOptions({product,showMeasurements=true,children,sizeGuide
   const [size,setSize]=useState<number|undefined>();
   const [wristSize,setWristSize]=useState<string>();
   const [message,setMessage]=useState("");
-  const sizingLink=product.whatsapp ? whatsappLink(product.whatsapp.number,product.whatsapp.sizingMessage) : undefined;
+  const sizingLink=product.whatsapp?.sizingMessage ? whatsappLink(product.whatsapp.number,product.whatsapp.sizingMessage) : undefined;
   if (!hasPrice(product.price)) return <div className="purchase-area"><button type="button" className="button purchase-button" disabled>COMING SOON</button></div>;
   return <div className="purchase-area">
     {!!product.wristSizes?.length && <div className="pdp-wrist-options">

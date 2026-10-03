@@ -6,7 +6,7 @@ import { formatPrice } from "../lib/format.ts";
 import { whatsappLink } from "../lib/whatsapp.ts";
 
 test("SKU 001 retains unknown commercial fields without inheriting demo claims", () => {
-  assert.equal(products.filter(p => p.id !== "001").length, 10);
+  assert.equal(products.filter(p => p.sku.startsWith("DEMO-")).length, 10);
   assert.equal(sku001.price, 150);
   assert.equal(formatPrice(sku001.price), "$150");
   assert.equal(hasPrice(sku001.price), true);
@@ -53,7 +53,7 @@ test("SKU 001 provides confirmed wrist ranges and inquiry-only trade without cha
   assert.equal(sku001.customSizing,true);
   assert.equal(sku001.shippingPolicy.length,2);
   assert.equal(sku001.exchangePolicy.paragraphs.length,6);
-  assert.ok(products.filter(p=>p.id!=="001").every(p=>p.wristSizes===undefined && p.tradeAvailable===undefined));
+  assert.ok(products.filter(p=>p.sku.startsWith("DEMO-")).every(p=>p.wristSizes===undefined && p.tradeAvailable===undefined));
 });
 
 test("WhatsApp links preserve country code and round-trip distinct prefilled messages", () => {

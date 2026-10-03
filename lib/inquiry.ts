@@ -30,7 +30,8 @@ export function inquiryHref(type?: InquiryType, product?: string) {
 export function inquiryPrefill(params: Record<string, string | string[] | undefined>, products: InquiryProduct[]): InquiryValues {
   const type = typeof params.type === "string" && inquiryTypes.some(t=>t.value===params.type) ? params.type : "";
   const product = products.find(p=>p.slug===params.product);
-  return {...emptyInquiry, type, product: product?.slug ?? "", productsInterested: type==="trade" ? product?.name ?? "" : ""};
+  const pendantTrade = type === "trade" && params.interest === "feizhoucui-pendants";
+  return {...emptyInquiry, type, product: product?.slug ?? "", productsInterested: pendantTrade ? "Feizhoucui Pendants" : type==="trade" ? product?.name ?? "" : ""};
 }
 const limits: Record<keyof InquiryValues, number> = {
   type: 20, name: 100, email: 254, whatsapp: 40, product: 120, message: 5000,

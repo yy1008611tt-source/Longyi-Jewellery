@@ -36,6 +36,11 @@ export interface Product {
   pdpLayout?: "editorial";
   subtitle?: string;
   material?: string; // Supplied commercial material description, distinct from stone identity.
+  bail?: string;
+  cord?: string;
+  seoDescription?: string;
+  materialsFinish?: string[];
+  exactPiece?: string[];
   productType?: "natural-variation" | "exact-piece";
   construction?: string;
   metalComponents?: string;

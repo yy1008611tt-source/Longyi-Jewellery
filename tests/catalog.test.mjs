@@ -52,7 +52,7 @@ test("related products prioritize the category, exclude the current item and fil
     assert.equal(related.length, 4);
     assert.equal(new Set(related.map(p => p.id)).size, 4);
     assert.ok(related.every(p => p.id !== current.id));
-    assert.equal(related[0].category, current.category);
+    if (products.some(p => p.id !== current.id && p.category === current.category)) assert.equal(related[0].category, current.category);
   }
 });
 
