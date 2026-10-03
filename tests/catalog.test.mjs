@@ -3,13 +3,13 @@ import test from "node:test";
 import { collections, products } from "../data/catalog.ts";
 import { filterAndSortProducts, relatedProducts, shopHref, shopSelection } from "../lib/catalog.ts";
 
-test("five distinct categories, including bangles, have complete unique products", () => {
-  assert.equal(collections.length, 5);
+test("six distinct categories, including bangles, have complete unique products", () => {
+  assert.equal(collections.length, 6);
   assert.equal(new Set(products.map(p => p.id)).size, products.length);
   assert.equal(new Set(products.map(p => p.slug)).size, products.length);
   for (const collection of collections) {
     const selected = filterAndSortProducts(products, collection.slug);
-    assert.ok(selected.length >= 2, collection.slug);
+    assert.ok(selected.length >= 1, collection.slug);
     assert.ok(selected.every(p => p.category === collection.slug));
   }
   assert.ok(products.every(p => p.images.length >= 1 && p.sku && p.description && p.tradeName));

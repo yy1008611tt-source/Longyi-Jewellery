@@ -6,7 +6,7 @@ export const sku010: Product = {
   subtitle: "Natural Feizhoucui · 925 Sterling Silver",
   material: "Natural Feizhoucui", tradeName: "Feizhoucui",
   bail: "925 Sterling Silver", cord: "Adjustable cord included", price: 75,
-  featured: false, newArrival: false,
+  featured: false, newArrival: true,
   shortDescription: "A one-of-a-kind Natural Feizhoucui pendant with a softly luminous green tone, finished with a 925 sterling silver bail and an adjustable cord. The piece shown is the exact piece you will receive.",
   seoDescription: "A one-of-a-kind Natural Feizhoucui pendant finished with a 925 sterling silver bail and an adjustable cord. The piece shown is the exact piece you will receive.",
   description: "This pendant is offered as an individual exact piece. The photographs on this page show the actual pendant you will receive, including its natural color, translucency and individual characteristics.",

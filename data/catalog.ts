@@ -6,6 +6,7 @@ export const collections: Collection[] = [
   { slug: "bangles", name: "Bangles", image: "/images/bangles.svg", description: "A continuous form. A character all its own.", imageBrief: "Bangle lifestyle / product image" },
   { slug: "beaded-bracelets", name: "Beaded Bracelets", image: "/images/beaded-bracelets.svg", description: "A little natural colour, close at hand.", imageBrief: "Beaded bracelet image" },
   { slug: "beaded-necklaces", name: "Beaded Necklaces", image: "/images/beaded-necklaces.svg", description: "Distinctive strands for the everyday.", imageBrief: "Necklace lifestyle image" },
+  { slug: "pendants", name: "Pendants", image: "/images/home/category-pendants.png", description: "Explore our pendant selection as new pieces arrive.", imageBrief: "Pendant worn with an adjustable cord" },
   { slug: "earrings", name: "Earrings", image: "/images/earrings.svg", description: "Small details. An effortless finishing touch.", imageBrief: "Model wearing earrings" },
   { slug: "rings", name: "Rings", image: "/images/rings.svg", description: "Naturally expressive, quietly personal.", imageBrief: "Ring close-up / lifestyle" },
 ];

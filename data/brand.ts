@@ -1,4 +1,4 @@
-import { chineseTerminology } from "./terminology";
+import { chineseTerminology } from "./terminology.ts";
 
 export const brand = {
   name: "Longyi Jewellery",
@@ -26,6 +26,7 @@ export const homeCategoryImages = {
   bangles: { src: '/images/home/category-bangles.png', alt: 'Woman wearing a green natural stone bangle in a warm lifestyle setting', tone: 'light' },
   'beaded-bracelets': { src: '/images/home/category-beaded-bracelets.png', alt: 'Green natural stone beaded bracelet worn on the wrist', tone: 'light' },
   'beaded-necklaces': { src: '/images/home/category-beaded-necklaces.png', alt: 'Green natural stone beaded necklace arranged on a large leaf', tone: 'dark' },
+  pendants: { src: '/images/home/category-pendants.png', alt: 'Natural Feizhoucui pendant worn with an adjustable cord', tone: 'light' },
   earrings: { src: '/images/home/category-earrings.png', alt: 'Green natural stone drop earring worn by a woman', tone: 'dark' },
   rings: { src: '/images/home/category-rings.png', alt: 'Green natural stone ring worn in a warm lifestyle setting', tone: 'dark' },
 };

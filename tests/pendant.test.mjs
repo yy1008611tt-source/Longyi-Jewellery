@@ -5,6 +5,18 @@ import { products, sku001, categoryName } from "../data/catalog.ts";
 import { galleryImages } from "../lib/product.ts";
 import { inquiryPrefill, inquiryEmail, validateInquiry, emptyInquiry } from "../lib/inquiry.ts";
 import { whatsappLink } from "../lib/whatsapp.ts";
+import { collections } from "../data/catalog.ts";
+import { homeCategoryImages } from "../data/brand.ts";
+
+test("homepage categories include the pendant campaign and New In uses its product main image", () => {
+  assert.deepEqual(collections.map(c => c.slug), ["bangles", "beaded-bracelets", "beaded-necklaces", "pendants", "earrings", "rings"]);
+  assert.ok(collections.every(c => c.slug in homeCategoryImages));
+  assert.equal(homeCategoryImages.pendants.src, "/images/home/category-pendants.png");
+  assert.equal(homeCategoryImages.pendants.alt, "Natural Feizhoucui pendant worn with an adjustable cord");
+  assert.equal(sku010.newArrival, true);
+  assert.equal(sku010.featured, false);
+  assert.equal(sku010.images[0].src, "/images/products/010/01-main.png");
+});
 
 test("retail prices and both live product shipping policies stay consistent", () => {
   assert.equal(sku001.price + sku010.price, 214);
