@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Product } from "@/types/product";
 import { formatPrice } from "@/lib/format";
-import { brand } from "@/data/brand";
 import { ProductOptions } from "./product-options";
 import { availableImages, coreAttributes } from "@/lib/product";
 import { categoryName } from "@/data/catalog";
@@ -42,7 +41,7 @@ export function ProductInformation({product:p}: {product:Product}) {
     <p className="detail-description">{p.shortDescription}</p>
     <ProductOptions product={p} />
     <div className="product-accordions">
-      <details open><summary>DESCRIPTION</summary><div><p>{p.description}</p><h2 className="section-label naturally-heading">NATURALLY UNIQUE</h2><p>{p.naturalVariation ?? brand.naturalVariation}</p></div></details>
+      <details open><summary>DESCRIPTION</summary><div><p>{p.description}</p></div></details>
       <details><summary>MATERIAL &amp; CRAFTSMANSHIP</summary><div><dl className="product-facts">{facts.map(([key,value])=><div key={key}><dt>{key}</dt><dd>{value}</dd></div>)}</dl>
         {p.certificate && <p className="certificate">CERTIFICATE AVAILABLE · {p.certificate.label}{p.certificate.reference ? ` · ${p.certificate.reference}` : ""}</p>}
         <Link className="text-link" href="/about-feizhoucui">About Feizhoucui ↗</Link>

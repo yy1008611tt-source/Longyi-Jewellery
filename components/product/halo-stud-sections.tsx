@@ -11,10 +11,9 @@ function facts(p: Product): [string, string][] {
 
 export function HaloStudInformation({product:p}: {product:Product}) {
   return <div className="product-information pdp-editorial-information">
-    <p className="eyebrow">Earrings · Natural Variation</p><h1>{p.name}</h1>
+    <p className="eyebrow">Earrings</p><h1>{p.name}</h1>
     <p className="pdp-subtitle">{p.subtitle}</p><p className="detail-price">{formatPrice(p.price)} <span>USD</span></p>
     <p className="small">SKU {p.sku}</p><p className="detail-description">{p.shortDescription}</p>
-    <p className="small">{p.description}</p>
     <ProductOptions product={p} showMeasurements={false}><div className="pdp-core-attributes"><ProductFacts rows={facts(p)} /></div></ProductOptions>
     <section className="pdp-trade" aria-label="Trade and wholesale"><h2 className="section-label">TRADE &amp; WHOLESALE</h2>
       <p>{p.tradeCopy?.contact}</p><p>{p.tradeCopy?.pricing}</p><div className="inquiry-contact-links">
@@ -25,13 +24,10 @@ export function HaloStudInformation({product:p}: {product:Product}) {
 }
 
 export function HaloStudSections({product:p}: {product:Product}) {
-  return <><section className="pdp-story pdp-natural" aria-labelledby="halo-natural-title"><div className="pdp-story-copy">
-    <h2 id="halo-natural-title">Naturally Unique</h2><h3>{p.naturalVariationSubtitle}</h3><p>{p.naturalVariation}</p>
-  </div></section><div className="product-accordions pdp-editorial-accordions">
+  return <div className="product-accordions pdp-editorial-accordions">
     <details><summary>DETAILS</summary><div><p>{p.description}</p><ProductFacts rows={facts(p)} /></div></details>
     <details><summary>MATERIALS &amp; FINISH</summary><div><p>Natural Feizhoucui set in 925 sterling silver with zircon accents.</p><p>Treatment: {p.treatment}.</p><Link className="text-link" href="/about-feizhoucui">Discover Feizhoucui ↗</Link></div></details>
-    <details><summary>NATURAL VARIATION</summary><div><p>{p.naturalVariation}</p></div></details>
     <details><summary>CARE</summary><div>{p.care?.split("\n").map(line=><p key={line}>{line}</p>)}</div></details>
     <details><summary>SHIPPING &amp; RETURNS</summary><div><h3 className="section-label">SHIPPING</h3>{p.shippingPolicy?.map(line=><p key={line}>{line}</p>)}<h3 className="section-label">{p.exchangePolicy?.title}</h3>{p.exchangePolicy?.paragraphs.map(line=><p key={line}>{line}</p>)}</div></details>
-  </div></>;
+  </div>;
 }

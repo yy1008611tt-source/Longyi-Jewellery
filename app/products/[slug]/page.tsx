@@ -8,7 +8,7 @@ import { ProductInformation } from "@/components/product/product-information";
 import { NaturallyUnique, ProductAccordions } from "@/components/product/product-editorial-sections";
 import { products, categoryName } from "@/data/catalog";
 import { relatedProducts } from "@/lib/catalog";
-import { ExactPieceInformation, ExactPieceStory, ExactPieceAccordions } from "@/components/product/exact-piece-sections";
+import { ExactPieceInformation, ExactPieceAccordions } from "@/components/product/exact-piece-sections";
 import { sku100Schema } from "@/data/sku100";
 import { sku101Schema } from "@/data/sku101";
 import { HaloStudInformation, HaloStudSections } from "@/components/product/halo-stud-sections";
@@ -30,7 +30,7 @@ export default async function ProductPage({params}:Props){
     <div className={`product-detail ${editorial ? "pdp-editorial-layout" : ""}`}>
       <ProductGallery images={p.images} name={p.name} pdpLayout={p.pdpLayout} />
       {p.sku === "101" ? <HaloStudInformation product={p} /> : exactPiece ? <ExactPieceInformation product={p} /> : <ProductInformation key={p.slug} product={p} />}
-      {editorial && (p.sku === "101" ? <HaloStudSections product={p} /> : exactPiece ? <><ExactPieceStory product={p} /><ExactPieceAccordions product={p} /></> : <><NaturallyUnique product={p} /><ProductAccordions product={p} /></>)}
+      {editorial && (p.sku === "101" ? <HaloStudSections product={p} /> : exactPiece ? <ExactPieceAccordions product={p} /> : <><NaturallyUnique product={p} /><ProductAccordions product={p} /></>)}
     </div>
     <section className="related-section"><div className="section-heading"><h2 className="section-label">MORE TO EXPLORE</h2><Link className="text-link" href="/shop">Shop All ↗</Link></div><div className="product-grid">{relatedProducts(products,p).map(item=><ProductCard key={item.id} product={item} />)}</div></section>
   </main>;

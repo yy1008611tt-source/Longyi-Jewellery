@@ -47,16 +47,7 @@ export function ProductAccordions({ product: p }: { product: Product }) {
 }
 
 export function NaturallyUnique({ product: p }: { product: Product }) {
-  if (p.productType !== "natural-variation" || !p.naturalVariation) return null;
   const image=availableImages(p.images).find(image=>image.role==="natural-variation");
-  return <section className={`pdp-story pdp-natural${image ? " pdp-natural-with-image" : ""}`} aria-labelledby="natural-title">
-    {image && <div className="pdp-natural-image"><Image src={image.src} alt={image.alt} fill sizes="(max-width: 959px) 100vw, 50vw" unoptimized /></div>}
-    <div className="pdp-story-copy">
-      <h2 id="natural-title">Naturally Unique</h2>
-      {p.naturalVariationSubtitle && <h3>{p.naturalVariationSubtitle}</h3>}
-      <p>{p.naturalVariation}</p>
-    </div>
-  </section>;
+  if (!image) return null;
+  return <section className="pdp-story pdp-natural pdp-natural-with-image" aria-label="Natural stone detail"><div className="pdp-natural-image"><Image src={image.src} alt={image.alt} fill sizes="(max-width: 959px) 100vw, 50vw" unoptimized /></div></section>;
 }
-
-
