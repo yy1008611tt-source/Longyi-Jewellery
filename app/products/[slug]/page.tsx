@@ -12,6 +12,8 @@ import { ExactPieceInformation, ExactPieceAccordions } from "@/components/produc
 import { sku100Schema } from "@/data/sku100";
 import { sku101Schema } from "@/data/sku101";
 import { sku102Schema } from "@/data/sku102";
+import { sku103Schema } from "@/data/sku103";
+import { GourdDropInformation, GourdDropSections } from "@/components/product/gourd-drop-sections";
 import { PebbleDropInformation, PebbleDropSections } from "@/components/product/pebble-drop-sections";
 import { HaloStudInformation, HaloStudSections } from "@/components/product/halo-stud-sections";
 type Props = { params: Promise<{slug:string}> };
@@ -29,11 +31,12 @@ export default async function ProductPage({params}:Props){
     {p.sku === "100" && <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(sku100Schema).replace(/</g, "\\u003c")}} />}
     {p.sku === "101" && <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(sku101Schema).replace(/</g, "\\u003c")}} />}
     {p.sku === "102" && <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(sku102Schema).replace(/</g, "\\u003c")}} />}
+    {p.sku === "103" && <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(sku103Schema).replace(/</g, "\\u003c")}} />}
     <Breadcrumb items={[{label:"Shop",href:"/shop"},{label:categoryName(p.category),href:`/collections/${p.category}`},{label:`${p.sku} · ${p.name}`}]} />
     <div className={`product-detail ${editorial ? "pdp-editorial-layout" : ""}`}>
       <ProductGallery images={p.images} name={p.name} pdpLayout={p.pdpLayout} />
-      {p.sku === "102" ? <PebbleDropInformation product={p} /> : p.sku === "101" ? <HaloStudInformation product={p} /> : exactPiece ? <ExactPieceInformation product={p} /> : <ProductInformation key={p.slug} product={p} />}
-      {editorial && (p.sku === "102" ? <PebbleDropSections product={p} /> : p.sku === "101" ? <HaloStudSections product={p} /> : exactPiece ? <ExactPieceAccordions product={p} /> : <><NaturallyUnique product={p} /><ProductAccordions product={p} /></>)}
+      {p.sku === "103" ? <GourdDropInformation product={p} /> : p.sku === "102" ? <PebbleDropInformation product={p} /> : p.sku === "101" ? <HaloStudInformation product={p} /> : exactPiece ? <ExactPieceInformation product={p} /> : <ProductInformation key={p.slug} product={p} />}
+      {editorial && (p.sku === "103" ? <GourdDropSections product={p} /> : p.sku === "102" ? <PebbleDropSections product={p} /> : p.sku === "101" ? <HaloStudSections product={p} /> : exactPiece ? <ExactPieceAccordions product={p} /> : <><NaturallyUnique product={p} /><ProductAccordions product={p} /></>)}
     </div>
     <section className="related-section"><div className="section-heading"><h2 className="section-label">MORE TO EXPLORE</h2><Link className="text-link" href="/shop">Shop All ↗</Link></div><div className="product-grid">{relatedProducts(products,p).map(item=><ProductCard key={item.id} product={item} />)}</div></section>
   </main>;
