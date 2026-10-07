@@ -31,8 +31,8 @@ test("retail prices and both live product shipping policies stay consistent", ()
   }
 });
 
-test("SKU 010 is the only pendant, with confirmed price and exactly three supplied images", () => {
-  assert.deepEqual(products.filter(p => p.category === "pendants").map(p => p.sku), ["010"]);
+test("SKU 010 remains independent alongside SKU 011, with confirmed price and exactly three supplied images", () => {
+  assert.deepEqual(products.filter(p => p.category === "pendants").map(p => p.sku), ["010", "011"]);
   assert.equal(categoryName(sku010.category), "Pendants");
   assert.equal(sku010.price, 75);
   assert.equal(sku001.price, 139);

@@ -13,5 +13,5 @@ test("all six shopping categories are distinct and include Pendants", () => {
 test("Pendants resolves as a category with its first exact-piece product", () => {
   const result = shopSelection({category: "pendants"}, shopCategories);
   assert.equal(result.category, "pendants");
-  assert.deepEqual(filterAndSortProducts(products, result.category).map(p => p.sku), ["010"]);
+  assert.deepEqual(filterAndSortProducts(products, result.category).map(p => p.sku), ["010", "011"]);
 });
