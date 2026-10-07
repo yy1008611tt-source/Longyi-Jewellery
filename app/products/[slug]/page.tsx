@@ -1,3 +1,5 @@
+import { sku012Schema } from "@/data/sku012";
+import { SamantabhadraPendantInformation, SamantabhadraPendantSections } from "@/components/product/samantabhadra-pendant-sections";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -39,13 +41,14 @@ export default async function ProductPage({params}:Props){
     {p.sku === "102" && <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(sku102Schema).replace(/</g, "\\u003c")}} />}
     {p.sku === "103" && <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(sku103Schema).replace(/</g, "\\u003c")}} />}
     {p.sku === "011" && <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(sku011Schema).replace(/</g, "\\u003c")}} />}
+    {p.sku === "012" && <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(sku012Schema).replace(/</g, "\\u003c")}} />}
     {p.sku === "105" && <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(sku105Schema).replace(/</g, "\\u003c")}} />}
     {p.sku === "104" && <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(sku104Schema).replace(/</g, "\\u003c")}} />}
     <Breadcrumb items={[{label:"Shop",href:"/shop"},{label:categoryName(p.category),href:`/collections/${p.category}`},{label:`${p.sku} · ${p.name}`}]} />
     <div className={`product-detail ${editorial ? "pdp-editorial-layout" : ""}`}>
       <ProductGallery images={p.images} name={p.name} pdpLayout={p.pdpLayout} />
-      {p.sku === "011" ? <GuanyinPendantInformation product={p} /> : p.sku === "105" ? <CabochonStudInformation product={p} /> : p.sku === "104" ? <PrismDropInformation product={p} /> : p.sku === "103" ? <GourdDropInformation product={p} /> : p.sku === "102" ? <PebbleDropInformation product={p} /> : p.sku === "101" ? <HaloStudInformation product={p} /> : exactPiece ? <ExactPieceInformation product={p} /> : <ProductInformation key={p.slug} product={p} />}
-      {editorial && (p.sku === "011" ? <GuanyinPendantSections product={p} /> : p.sku === "105" ? <CabochonStudSections product={p} /> : p.sku === "104" ? <PrismDropSections product={p} /> : p.sku === "103" ? <GourdDropSections product={p} /> : p.sku === "102" ? <PebbleDropSections product={p} /> : p.sku === "101" ? <HaloStudSections product={p} /> : exactPiece ? <ExactPieceAccordions product={p} /> : <><NaturallyUnique product={p} /><ProductAccordions product={p} /></>)}
+      {p.sku === "012" ? <SamantabhadraPendantInformation product={p} /> : p.sku === "011" ? <GuanyinPendantInformation product={p} /> : p.sku === "105" ? <CabochonStudInformation product={p} /> : p.sku === "104" ? <PrismDropInformation product={p} /> : p.sku === "103" ? <GourdDropInformation product={p} /> : p.sku === "102" ? <PebbleDropInformation product={p} /> : p.sku === "101" ? <HaloStudInformation product={p} /> : exactPiece ? <ExactPieceInformation product={p} /> : <ProductInformation key={p.slug} product={p} />}
+      {editorial && (p.sku === "012" ? <SamantabhadraPendantSections product={p} /> : p.sku === "011" ? <GuanyinPendantSections product={p} /> : p.sku === "105" ? <CabochonStudSections product={p} /> : p.sku === "104" ? <PrismDropSections product={p} /> : p.sku === "103" ? <GourdDropSections product={p} /> : p.sku === "102" ? <PebbleDropSections product={p} /> : p.sku === "101" ? <HaloStudSections product={p} /> : exactPiece ? <ExactPieceAccordions product={p} /> : <><NaturallyUnique product={p} /><ProductAccordions product={p} /></>)}
     </div>
     <section className="related-section"><div className="section-heading"><h2 className="section-label">MORE TO EXPLORE</h2><Link className="text-link" href="/shop">Shop All ↗</Link></div><div className="product-grid">{relatedProducts(products,p).map(item=><ProductCard key={item.id} product={item} />)}</div></section>
   </main>;
