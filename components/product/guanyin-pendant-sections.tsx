@@ -27,6 +27,7 @@ export function GuanyinPendantSections({product:p}: {product:Product}) {
   return <div className="product-accordions pdp-editorial-accordions">
     <details><summary>DETAILS</summary><div><p>{p.description}</p><ProductFacts rows={[["Product", p.name], ["SKU", p.sku], ["Category", "Pendants"], ...facts(p).filter(([label]) => label !== "SKU"), ["Price", "$179 USD"]]} /></div></details>
     <details><summary>MATERIALS &amp; FINISH</summary><div>{p.materialsFinish?.map(line => <p key={line}>{line}</p>)}<Link className="text-link" href="/about-feizhoucui">Discover Feizhoucui ↗</Link></div></details>
+    <details><summary>CULTURAL SYMBOLISM</summary><div><p>In Chinese culture, Guanyin is traditionally associated with compassion, peace and protection.</p></div></details>
     <details><summary>CARE</summary><div>{p.care?.split("\n").map(line=><p key={line}>{line}</p>)}</div></details>
     <details><summary>SHIPPING &amp; RETURNS</summary><div><h3 className="section-label">SHIPPING</h3>{p.shippingPolicy?.map(line=><p key={line}>{line}</p>)}<h3 className="section-label">{p.exchangePolicy?.title}</h3>{p.exchangePolicy?.paragraphs.map(line=><p key={line}>{line}</p>)}</div></details>
   </div>;
